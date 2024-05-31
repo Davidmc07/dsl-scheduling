@@ -16,8 +16,8 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class SchedulingGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		var generator = new PythonGenerator(resource, fsa);
-		var code = generator.compile;
-		CodeExecutionManager.execute(code);
+		var generator = new CLIGenerator(resource, fsa);
+		var args = generator.compile;
+		CodeExecutionManager.execute(args);
 	}
 }
