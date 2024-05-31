@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension-point id="splashExtension" name="Splash Extensions" schema="schema/splashExtension.exsd"/>
+	<extension point="org.eclipse.emf.ecore.generated_package">
+		<package
+			uri = "http://www.uniovi.org/dsl/scheduling/Scheduling"
+			class = "org.uniovi.dsl.scheduling.scheduling.SchedulingPackage"
+			genModel = "model/generated/Scheduling.genmodel" />
+	</extension>
+ <extension
+       id="product"
+       point="org.eclipse.core.runtime.products">
+    <product
+          application="org.uniovi.dsl.scheduling.rcp.application"
+          name="org.uniovi.dsl.scheduling.product">
+       <property
+             name="windowImages"
+             value="platform:/plugin/org.uniovi.dsl.scheduling.rcp/icons/ide16.png,platform:/plugin/org.uniovi.dsl.scheduling.rcp/icons/ide32.png,platform:/plugin/org.uniovi.dsl.scheduling.rcp/icons/ide48.png,platform:/plugin/org.uniovi.dsl.scheduling.rcp/icons/ide64.png,platform:/plugin/org.uniovi.dsl.scheduling.rcp/icons/ide128.png,platform:/plugin/org.uniovi.dsl.scheduling.rcp/icons/ide256.png">
+       </property>
+       <property
+             name="appName"
+             value="org.uniovi.dsl.scheduling.product">
+       </property>
+       <property
+             name="startupForegroundColor"
+             value="FFFFFF">
+       </property>
+       <property
+             name="startupMessageRect"
+             value="7,252,0,20">
+       </property>
+       <property
+             name="startupProgressRect"
+             value="0,285,500,15">
+       </property>
+       <property
+             name="preferenceCustomization"
+             value="plugin_customization.ini">
+       </property>
+    </product>
+ </extension>
+ <extension
+       point="org.eclipse.ui.splashHandlers">
+    <splashHandler
+          class="org.uniovi.dsl.scheduling.splashHandlers.ExtensibleSplashHandler"
+          id="org.uniovi.dsl.scheduling.splashHandlers.extensible">
+    </splashHandler>
+ </extension>
+ <extension
+       point="org.uniovi.dsl.scheduling.splashExtension">
+    <splashExtension
+          icon="icons/af.png"
+          id="af"
+          tooltip="Application Framework">
+    </splashExtension>
+    <splashExtension
+          icon="icons/embedded.png"
+          id="embedded"
+          tooltip="Embedded">
+    </splashExtension>
+    <splashExtension
+          icon="icons/enterprise.png"
+          id="enterprise"
+          tooltip="Enterprise">
+    </splashExtension>
+    <splashExtension
+          icon="icons/languages.png"
+          id="languages"
+          tooltip="Languages">
+    </splashExtension>
+    <splashExtension
+          icon="icons/rcp.png"
+          id="rcp"
+          tooltip="RCP">
+    </splashExtension>
+ </extension>
+ 
+</plugin>

@@ -1,0 +1,56 @@
+grammar org.uniovi.dsl.scheduling.Scheduling with org.eclipse.xtext.common.Terminals
+
+generate scheduling "http://www.uniovi.org/dsl/scheduling/Scheduling"
+
+Program
+	: installations=Installations & maintenances=Maintenances & options=Config
+	;
+	
+Installations
+	: INSTALLATIONS_HEADER (installations+=InstallationDef)+ 
+	;
+terminal INSTALLATIONS_HEADER: '[' 'Installations' ']';
+	
+InstallationDef
+	: INSTALLATION_TYPE id=ID (
+		('Name:' installationName=STRING) &
+		('Capacity:' capacity=INT))
+	;
+terminal INSTALLATION_TYPE: 'Installation';
+	
+Maintenances
+	: MAINTENANCES_HEADER (maints+=MaintDef)+
+	;
+terminal MAINTENANCES_HEADER: '[' 'Maintenances' ']';
+	
+MaintDef
+	: MAINTENANCE_TYPE id=ID (
+		('Name:' maintName=STRING) &
+		('Interval:' hours=INT) &
+		('Periods:' duration=INT) &
+		('Priority:' priority=INT)? &
+		('Includes:' includes=List)? &
+		('Installations:' installations=List))
+	;
+terminal MAINTENANCE_TYPE: 'Maintenance';
+	
+Config
+	: OPTIONS_HEADER (
+		('Input:' input=STRING) &
+		('Random_state:' randomState=INT)? &
+		('Prob_before_restriction:' probBeforeScheduling=FLOAT)? &
+		('Rate_of_change:' rateOfChange=FLOAT)? &
+		('Days_per_period:' daysPerPeriod=INT)? &
+		('Number_of_periods:' numberOfPeriods=INT)? &
+		('Extra_hours:' extraHours=INT)? &
+		('Iterations:' maxIters=INT)? )
+	;
+terminal OPTIONS_HEADER: '[' 'Options' ']';
+
+List
+	: ID (',' ID)*
+	;	
+	
+terminal FLOAT
+	: (INT)+'.'(INT)+
+	;

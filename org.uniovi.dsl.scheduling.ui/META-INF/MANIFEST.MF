@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.uniovi.dsl.scheduling.ui
+Bundle-ManifestVersion: 2
+Bundle-Name: org.uniovi.dsl.scheduling.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.uniovi.dsl.scheduling.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.uniovi.dsl.scheduling,
+ org.uniovi.dsl.scheduling.ide,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.14.300",
+ org.eclipse.ui.ide;bundle-version="3.18.500",
+ org.eclipse.ui,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder,
+ org.eclipse.xtext.ide
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: org.uniovi.dsl.scheduling.ui.internal,
+ org.uniovi.dsl.scheduling.ui.quickfix,
+ org.uniovi.dsl.scheduling.ui.contentassist
+Bundle-Activator: org.uniovi.dsl.scheduling.ui.internal.SchedulingActivator
+Bundle-ClassPath: .

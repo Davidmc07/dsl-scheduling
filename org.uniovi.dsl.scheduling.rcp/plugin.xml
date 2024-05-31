@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="org.uniovi.dsl.scheduling.rcp.Application">
+         </run>
+      </application>
+   </extension>
+   
+   <!-- Perspectives -->
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.uniovi.dsl.scheduling.rcp.Perspective"
+            name="RCP Perspective"
+            id="org.uniovi.dsl.scheduling.rcp.perspective">
+      </perspective>
+   </extension>
+   
+   <!-- Views -->
+   <extension
+         point="org.eclipse.ui.views">
+         
+      <!-- Project explorer view -->
+      <view 
+            class="org.eclipse.ui.navigator.CommonNavigator"
+            icon="icons/fldr_obj.png"
+            id="dsl.navigator"
+            name="Project Explorer">
+      </view>
+      
+      <!-- Problems view -->
+      <view
+            class="org.eclipse.ui.internal.views.markers.ProblemsView"
+            id="dsl.problems"
+            name="Problems">
+      </view>
+   </extension>
+   
+   <!-- Project explorer resource viewer -->
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewerActionBinding
+            viewerId="dsl.navigator">
+         <includes>
+            <actionExtension
+                  pattern="org.eclipse.ui.navigator.resources.*">
+            </actionExtension>
+            <actionExtension
+                  pattern="org.eclipse.ui.navigator.resources.*">
+            </actionExtension>
+         </includes>
+      </viewerActionBinding>
+      <viewerContentBinding
+            viewerId="dsl.navigator">
+         <includes>
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resourceContent">
+            </contentExtension>
+         </includes>
+      </viewerContentBinding>
+   </extension>
+   
+   <!-- Preferences -->
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.uniovi.dsl.scheduling.rcp.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   
+   <!-- DSL wizard -->
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.eclipse.ui.Basic"
+            class="org.uniovi.dsl.scheduling.rcp.wizards.SchedulingWizard"
+            icon="icons/file_maint.png"
+            id="org.uniovi.dsl.scheduling.rcp.wizard"
+            name="Maintenance Scheduling File">
+      </wizard>
+   </extension>
+   
+   <!-- Disable activities -->
+   <extension point="org.eclipse.ui.activities">
+   
+   		<!-- Disable -->
+		<activity id="org.eclipse.activity.disable" name="disable">
+			<enabledWhen>
+				<with variable="true">
+		      		<equals value="false">
+		        	</equals>
+		    	</with>
+			</enabledWhen>
+		</activity>
+
+		<!-- WIZARDS -->
+		
+		<!-- Jdt -->
+		<activityPatternBinding 
+			activityId="org.eclipse.activity.disable" 
+			pattern=".*/org.eclipse.jdt.*">
+		</activityPatternBinding>
+		<!-- Java project -->
+		<activityPatternBinding 
+			activityId="org.eclipse.activity.disable" 
+			pattern=".*/org.eclipse.ant.ui.wizards.JavaProjectWizard">
+		</activityPatternBinding>
+		<!-- PDE -->
+		<activityPatternBinding 
+			activityId="org.eclipse.activity.disable" 
+			pattern=".*/org.eclipse.pde.ui.*">
+		</activityPatternBinding>
+		<activityPatternBinding 
+			activityId="org.eclipse.activity.disable" 
+			pattern=".*/org.eclipse.pde.ds.ui.wizard">
+		</activityPatternBinding>
+		<activityPatternBinding 
+			activityId="org.eclipse.activity.disable" 
+			pattern=".*/org.eclipse.pde.ua.ui.*">
+		</activityPatternBinding>
+		<!-- EMF -->
+		<activityPatternBinding 
+			activityId="org.eclipse.activity.disable" 
+			pattern=".*/org.eclipse.emf.*">
+		</activityPatternBinding>
+		<!-- Xtext -->
+		<activityPatternBinding 
+			activityId="org.eclipse.activity.disable" 
+			pattern=".*/org.eclipse.xtend.ide.wizards.*">
+		</activityPatternBinding>
+		<activityPatternBinding 
+			activityId="org.eclipse.activity.disable" 
+			pattern=".*/org.eclipse.xtext.xtext.ui.wizard.*">
+		</activityPatternBinding>
+		<activityPatternBinding 
+			activityId="org.eclipse.activity.disable" 
+			pattern=".*/org.eclipse.xtend.examples.*">
+		</activityPatternBinding>
+		<activityPatternBinding 
+			activityId="org.eclipse.activity.disable" 
+			pattern=".*/org.eclipse.xtext.examples.*">
+		</activityPatternBinding>
+		
+		<!-- OPTIONS -->
+		
+		<!-- Import -->
+		<activityPatternBinding 
+			activityId="org.eclipse.activity.disable" 
+			pattern=".*/org.eclipse.ui.navigator.resources.PortingActions">
+		</activityPatternBinding>
+		<!-- Properties -->
+		<activityPatternBinding 
+			activityId="org.eclipse.activity.disable" 
+			pattern=".*/org.eclipse.ui.navigator.resources.PropertiesActionProvider">
+		</activityPatternBinding>
+		<!-- Debug -->
+		<activityPatternBinding 
+			activityId="org.eclipse.activity.disable" 
+			pattern=".*/org.eclipse.debug.*">
+		</activityPatternBinding>
+		<!-- Eclipse actions -->
+		<activityPatternBinding 
+			activityId="org.eclipse.activity.disable" 
+			pattern=".*/org.eclipse.ui.actions.*">
+		</activityPatternBinding>
+		<!-- External tools -->
+		<activityPatternBinding 
+			activityId="org.eclipse.activity.disable" 
+			pattern=".*/org.eclipse.ui.externaltools.*">
+		</activityPatternBinding>
+		<!-- Team -->
+		<activityPatternBinding 
+			activityId="org.eclipse.activity.disable" 
+			pattern=".*/org.eclipse.team.*">
+		</activityPatternBinding>
+		<!-- Next annotation -->
+		<activityPatternBinding 
+			activityId="org.eclipse.activity.disable" 
+			pattern=".*/org.eclipse.ui.edit.text.gotoNextAnnotation">
+		</activityPatternBinding>
+		<!-- Previous annotation -->
+		<activityPatternBinding 
+			activityId="org.eclipse.activity.disable" 
+			pattern=".*/org.eclipse.ui.edit.text.gotoPreviousAnnotation">
+		</activityPatternBinding>	
+		<!-- Java search -->
+		<activityPatternBinding 
+			activityId="org.eclipse.activity.disable" 
+			pattern=".*/org.eclipse.search.Open.*">
+		</activityPatternBinding>
+		<activityPatternBinding 
+			activityId="org.eclipse.activity.disable" 
+			pattern=".*/org.eclipse.search.TextSearchWorkingSet">
+		</activityPatternBinding>
+		
+	</extension> 	
+	
+	<extension point="org.eclipse.ui.decorators">
+		<decorator
+		    id="org.uniovi.dsl.scheduling.decorators.projectDecorator"
+		    label="Project image decorator"
+		    state="true"
+		    class= "org.uniovi.dsl.scheduling.rcp.decorators.ProjectLabelDecorator"
+		    objectClass="org.eclipse.core.resources.IResource"
+		    adaptable="true">
+		    <description>
+		      Provide an image to the projects.
+		    </description>
+		</decorator>
+	</extension>
+	
+	
+	
+	<!-- Templates -->
+	<extension point="org.eclipse.ui.editors.templates">
+		<template 
+			name="example.template.name" 
+			description="Example template" 
+			id="org.eclipse.wst.xml.ui.internal.templates.xmldeclaration" 
+			contextTypeId="while">
+			
+				<pattern>[Options]</pattern>
+			</template>
+			
+		<include file="src/org/uniovi/dsl/scheduling/rcp/preferences/templates.xml" />
+	</extension>
+
+</plugin>

@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Python
+Bundle-SymbolicName: org.uniovi.dsl.scheduling.python
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: org.uniovi.dsl.scheduling.python
+Eclipse-BundleShape: dir
