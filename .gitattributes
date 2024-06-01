@@ -1,0 +1,2 @@
+org.uniovi.dsl.scheduling.python/cli-scheduler.exe filter=lfs diff=lfs merge=lfs -text
+org.uniovi.dsl.scheduling.python/_internal filter=lfs diff=lfs merge=lfs -text
