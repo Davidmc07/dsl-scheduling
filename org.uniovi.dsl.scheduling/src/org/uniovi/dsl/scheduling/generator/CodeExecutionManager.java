@@ -38,7 +38,9 @@ public class CodeExecutionManager {
 		consoleManager.showConsoleView(console);
 		console.activate();
 	
-		args.add(0, "cli-scheduler.exe");
+		args.add(0, "cmd");
+		args.add(1, "/c");
+		args.add(2, "cli-scheduler.exe");
 		args.add("--path");
 		args.add(path);
 		ProcessBuilder processBuilder = new ProcessBuilder(args);
