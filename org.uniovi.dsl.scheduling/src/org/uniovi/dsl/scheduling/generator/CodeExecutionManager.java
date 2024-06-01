@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.ProcessBuilder.Redirect;
+import java.util.List;
 
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.IConsoleManager;
@@ -17,13 +17,13 @@ public class CodeExecutionManager {
 	private static String path = "";
     private static boolean executing = false;
 
-    public static void execute(String code) {
+    public static void execute(List<String> args) {
 		if (!executing) {
 		    executing = true;
 		    Thread thread = new Thread(new Runnable() {
 				@Override
 				public void run() {
-				    executePythonCode(code);
+				    executePythonCode(args);
 				    executing = false;
 				}
 		    });
@@ -31,16 +31,21 @@ public class CodeExecutionManager {
 		}
     }
 
-    private static void executePythonCode(String code) {
+    private static void executePythonCode(List<String> args) {
 		IConsoleManager consoleManager = ConsolePlugin.getDefault().getConsoleManager();
 		MessageConsole console = findOrCreateConsole("Console");
 		console.clearConsole();
 		consoleManager.showConsoleView(console);
 		console.activate();
 	
-		ProcessBuilder processBuilder = new ProcessBuilder("python", "-c", code, path);
+		args.add(0, "cmd");
+		args.add(1, "/c");
+		args.add(2, "cli-scheduler.exe");
+		args.add("--path");
+		args.add(path);
+		ProcessBuilder processBuilder = new ProcessBuilder(args);
 		processBuilder.redirectOutput(Redirect.PIPE);
-		//processBuilder.redirectErrorStream(true);
+		processBuilder.redirectErrorStream(true);
 		setWorkingDirectory(processBuilder);
 	
 		try (AnsiStream stream = new AnsiStream(console)) {
