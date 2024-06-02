@@ -45,7 +45,7 @@ public class CodeExecutionManager {
 		args.add(path);
 		ProcessBuilder processBuilder = new ProcessBuilder(args);
 		processBuilder.redirectOutput(Redirect.PIPE);
-		//processBuilder.redirectErrorStream(true);
+		processBuilder.redirectErrorStream(true);
 		setWorkingDirectory(processBuilder);
 	
 		try (AnsiStream stream = new AnsiStream(console)) {

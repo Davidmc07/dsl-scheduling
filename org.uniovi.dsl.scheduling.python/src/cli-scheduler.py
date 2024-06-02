@@ -32,8 +32,6 @@ class ParseInstallationAction(argparse.Action):
         globals()["installations"] = self.create_objects(values, namespace)
 
     def create_objects(self, values, namespace):
-        for v in values:
-            print(v)
         data = list(map(lambda x: json.loads(x), values))
         res = []
 
@@ -73,7 +71,7 @@ parser.add_argument('--max-iters', required=False, type=int, default=5)
 parser.add_argument('--start-date', required=False, type=date_type, default=datetime.today(), help="Start Date (YYYY-MM-DD)", )
 
 args = parser.parse_args()
-print(args.start_date)
+
 Logger.new_file(args.dsl_filename)
 
 run_MCTS(
