@@ -6,7 +6,6 @@ from .mcts import *
 from .logger import *
 from .dashboard import *
 import os
-import sys
 import json
 
 def run_MCTS(
@@ -21,14 +20,15 @@ def run_MCTS(
     max_iter=5, 
     out_filename="/output",
     min_reward=5000,
-    max_reward=9000
+    max_reward=9000,
+    path=None
 ):
     """
     Runs the MCTS algorithm
     """
     random.seed(random_state)
     np.random.seed(random_state) 
-    os.chdir(sys.argv[1])
+    if path != None: os.chdir(path)
 
     ea = EAState(
         days_per_period,
