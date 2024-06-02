@@ -35,7 +35,10 @@ import org.eclipse.xtext.generator.GeneratorContext;
 import org.eclipse.xtext.generator.IGenerator2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.resource.IResourceDescriptions;
+import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.resource.IResourceSetProvider;
+import org.eclipse.xtext.validation.CheckMode;
+import org.eclipse.xtext.validation.IResourceValidator;
 import org.uniovi.dsl.scheduling.generator.CodeExecutionManager;
 
 import com.google.inject.Provider;
@@ -55,6 +58,7 @@ public class GenerationHandler extends AbstractHandler implements IHandler {
 
     @Inject
     IResourceSetProvider resourceSetProvider;
+    
 
     @Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
@@ -71,6 +75,7 @@ public class GenerationHandler extends AbstractHandler implements IHandler {
 		IWorkbenchWindow window = wb.getActiveWorkbenchWindow();
 		IWorkbenchPage page = window.getActivePage();
 		IEditorPart editor = page.getActiveEditor();
+	
 		if (editor == null)
 		    return null;
 	
@@ -103,6 +108,15 @@ public class GenerationHandler extends AbstractHandler implements IHandler {
 		ResourceSet rs = resourceSetProvider.get(project);
 		
 		Resource r = rs.getResource(uri, true);
+		if (r instanceof XtextResource) {
+			IResourceValidator validator = ((XtextResource) r)
+					.getResourceServiceProvider()
+					.getResourceValidator();
+			
+			if (!validator.validate(r, CheckMode.ALL, null).isEmpty()) {
+				return null;
+			}
+		}
 		SimpleAnyType wrapper = XMLTypeFactory.eINSTANCE.createSimpleAnyType();
 		wrapper.setInstanceType(EcorePackage.eINSTANCE.getEString());
 		wrapper.setValue(mode);
