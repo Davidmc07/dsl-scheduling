@@ -34,6 +34,7 @@ class CLIGenerator {
 		for (i: resource.allContents.toIterable.filter(typeof(Program))) {
 			dispatcher.invoke(i);
 		}
+		
 		//fsa.generateFile("output.txt", sb.toString);
 		return args;
 	}
@@ -60,8 +61,8 @@ class CLIGenerator {
 		
 		for (installation : installations.installations) { 
 			var str = "{";
-			str += '''"id":"«installation.id»", ''';
-			str += '''"name":"«getName(installation)»", ''';
+			str += '''"id":"«installation.id»",''';
+			str += '''"name":"«getName(installation)»",''';
 			str += '''"capacity":«installation.capacity»''';
 			str += "}";
 			args.add(str.replace('"', '\\"'));
@@ -81,12 +82,12 @@ class CLIGenerator {
 		
 		for (maint : maintenances.maints) { 
 			var str = "{";
-			str += '''"id":"«maint.id»", ''';
-			str += '''"name":"«(maint.maintName === null) ? maint.id : maint.maintName»", ''';
-			str += '''"flight_hours":«maint.hours», ''';
-			str += '''"duration":«maint.duration», ''';
-			str += '''"priority":«maint.priority», ''';
-			str += '''"places":[«processList(maint.installations)»], ''';
+			str += '''"id":"«maint.id»",''';
+			str += '''"name":"«(maint.maintName === null) ? maint.id : maint.maintName»",''';
+			str += '''"flight_hours":«maint.hours»,''';
+			str += '''"duration":«maint.duration»,''';
+			str += '''"priority":«maint.priority»,''';
+			str += '''"places":[«processList(maint.installations)»],''';
 			str += '''"includes":[«IF (maint.includes !== null) »«processList(maint.includes)»« ENDIF»]''';
 			str += "}";
 			args.add(str.replace('"', '\\"'));
@@ -132,6 +133,13 @@ class CLIGenerator {
 		if (options.maxIters > 0) {
 			args.add('--max-iters');
         	args.add(options.maxIters.toString());
+		}
+		if (options.startDate !== null) {
+			args.add('--start-date');
+			var dateStr = options.startDate.day.toString()
+			dateStr += '-' + options.startDate.month.toString()
+			dateStr += '-' + options.startDate.year.toString()
+        	args.add(dateStr);
 		}
 		return args
 	}

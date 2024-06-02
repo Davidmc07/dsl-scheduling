@@ -106,6 +106,16 @@ public class SchedulingAdapterFactory extends AdapterFactoryImpl
         return createConfigAdapter();
       }
       @Override
+      public Adapter caseDate(Date object)
+      {
+        return createDateAdapter();
+      }
+      @Override
+      public Adapter caseDMYDate(DMYDate object)
+      {
+        return createDMYDateAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -213,6 +223,36 @@ public class SchedulingAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createConfigAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.uniovi.dsl.scheduling.scheduling.Date <em>Date</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.uniovi.dsl.scheduling.scheduling.Date
+   * @generated
+   */
+  public Adapter createDateAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.uniovi.dsl.scheduling.scheduling.DMYDate <em>DMY Date</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.uniovi.dsl.scheduling.scheduling.DMYDate
+   * @generated
+   */
+  public Adapter createDMYDateAdapter()
   {
     return null;
   }

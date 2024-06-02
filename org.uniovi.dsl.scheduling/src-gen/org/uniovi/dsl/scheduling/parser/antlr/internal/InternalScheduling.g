@@ -928,6 +928,40 @@ ruleConfig returns [EObject current=null]
 						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getConfigAccess().getUnorderedGroup_1());
 					}
 				)
+			)|
+			(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getConfigAccess().getUnorderedGroup_1(), 8)}?=>(
+					{
+						getUnorderedGroupHelper().select(grammarAccess.getConfigAccess().getUnorderedGroup_1(), 8);
+					}
+								({true}?=>(otherlv_18='Start_date:'
+								{
+									newLeafNode(otherlv_18, grammarAccess.getConfigAccess().getStart_dateKeyword_1_8_0());
+								}
+								(
+									(
+										{
+											newCompositeNode(grammarAccess.getConfigAccess().getStartDateDMYDateParserRuleCall_1_8_1_0());
+										}
+										lv_startDate_19_0=ruleDMYDate
+										{
+											if ($current==null) {
+												$current = createModelElementForParent(grammarAccess.getConfigRule());
+											}
+											set(
+												$current,
+												"startDate",
+												lv_startDate_19_0,
+												"org.uniovi.dsl.scheduling.Scheduling.DMYDate");
+											afterParserOrEnumRuleCall();
+										}
+									)
+								)
+								))
+					{ 
+						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getConfigAccess().getUnorderedGroup_1());
+					}
+				)
 			)
 					)+
 					{getUnorderedGroupHelper().canLeave(grammarAccess.getConfigAccess().getUnorderedGroup_1())}?
@@ -977,6 +1011,154 @@ ruleList returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 				newLeafNode(this_ID_2, grammarAccess.getListAccess().getIDTerminalRuleCall_1_1());
 			}
 		)*
+	)
+;
+
+// Entry rule entryRuleDMYDate
+entryRuleDMYDate returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDMYDateRule()); }
+	iv_ruleDMYDate=ruleDMYDate
+	{ $current=$iv_ruleDMYDate.current; }
+	EOF;
+
+// Rule DMYDate
+ruleDMYDate returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				(
+					lv_day_0_0=RULE_INT
+					{
+						newLeafNode(lv_day_0_0, grammarAccess.getDMYDateAccess().getDayINTTerminalRuleCall_0_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getDMYDateRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"day",
+							lv_day_0_0,
+							"org.eclipse.xtext.common.Terminals.INT");
+					}
+				)
+			)
+			otherlv_1='-'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getDMYDateAccess().getHyphenMinusKeyword_0_1());
+			}
+			(
+				(
+					lv_month_2_0=RULE_INT
+					{
+						newLeafNode(lv_month_2_0, grammarAccess.getDMYDateAccess().getMonthINTTerminalRuleCall_0_2_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getDMYDateRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"month",
+							lv_month_2_0,
+							"org.eclipse.xtext.common.Terminals.INT");
+					}
+				)
+			)
+			otherlv_3='-'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getDMYDateAccess().getHyphenMinusKeyword_0_3());
+			}
+			(
+				(
+					lv_year_4_0=RULE_INT
+					{
+						newLeafNode(lv_year_4_0, grammarAccess.getDMYDateAccess().getYearINTTerminalRuleCall_0_4_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getDMYDateRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"year",
+							lv_year_4_0,
+							"org.eclipse.xtext.common.Terminals.INT");
+					}
+				)
+			)
+		)
+		    |
+		(
+			(
+				(
+					lv_day_5_0=RULE_INT
+					{
+						newLeafNode(lv_day_5_0, grammarAccess.getDMYDateAccess().getDayINTTerminalRuleCall_1_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getDMYDateRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"day",
+							lv_day_5_0,
+							"org.eclipse.xtext.common.Terminals.INT");
+					}
+				)
+			)
+			otherlv_6='/'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getDMYDateAccess().getSolidusKeyword_1_1());
+			}
+			(
+				(
+					lv_month_7_0=RULE_INT
+					{
+						newLeafNode(lv_month_7_0, grammarAccess.getDMYDateAccess().getMonthINTTerminalRuleCall_1_2_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getDMYDateRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"month",
+							lv_month_7_0,
+							"org.eclipse.xtext.common.Terminals.INT");
+					}
+				)
+			)
+			otherlv_8='/'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getDMYDateAccess().getSolidusKeyword_1_3());
+			}
+			(
+				(
+					lv_year_9_0=RULE_INT
+					{
+						newLeafNode(lv_year_9_0, grammarAccess.getDMYDateAccess().getYearINTTerminalRuleCall_1_4_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getDMYDateRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"year",
+							lv_year_9_0,
+							"org.eclipse.xtext.common.Terminals.INT");
+					}
+				)
+			)
+		)
 	)
 ;
 

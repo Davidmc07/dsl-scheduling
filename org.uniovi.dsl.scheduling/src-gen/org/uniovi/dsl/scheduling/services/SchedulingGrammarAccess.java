@@ -6,6 +6,7 @@ package org.uniovi.dsl.scheduling.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
+import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
@@ -351,6 +352,10 @@ public class SchedulingGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final Keyword cIterationsKeyword_1_7_0 = (Keyword)cGroup_1_7.eContents().get(0);
 		private final Assignment cMaxItersAssignment_1_7_1 = (Assignment)cGroup_1_7.eContents().get(1);
 		private final RuleCall cMaxItersINTTerminalRuleCall_1_7_1_0 = (RuleCall)cMaxItersAssignment_1_7_1.eContents().get(0);
+		private final Group cGroup_1_8 = (Group)cUnorderedGroup_1.eContents().get(8);
+		private final Keyword cStart_dateKeyword_1_8_0 = (Keyword)cGroup_1_8.eContents().get(0);
+		private final Assignment cStartDateAssignment_1_8_1 = (Assignment)cGroup_1_8.eContents().get(1);
+		private final RuleCall cStartDateDMYDateParserRuleCall_1_8_1_0 = (RuleCall)cStartDateAssignment_1_8_1.eContents().get(0);
 		
 		//Config
 		//    : OPTIONS_HEADER (
@@ -361,7 +366,8 @@ public class SchedulingGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//        ('Days_per_period:' daysPerPeriod=INT)? &
 		//        ('Number_of_periods:' numberOfPeriods=INT)? &
 		//        ('Extra_hours:' extraHours=INT)? &
-		//        ('Iterations:' maxIters=INT)? )
+		//        ('Iterations:' maxIters=INT)? &
+		//        ('Start_date:' startDate=DMYDate)? )
 		//    ;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -373,7 +379,8 @@ public class SchedulingGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//       ('Days_per_period:' daysPerPeriod=INT)? &
 		//       ('Number_of_periods:' numberOfPeriods=INT)? &
 		//       ('Extra_hours:' extraHours=INT)? &
-		//       ('Iterations:' maxIters=INT)? )
+		//       ('Iterations:' maxIters=INT)? &
+		//       ('Start_date:' startDate=DMYDate)? )
 		public Group getGroup() { return cGroup; }
 		
 		//OPTIONS_HEADER
@@ -387,7 +394,8 @@ public class SchedulingGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//       ('Days_per_period:' daysPerPeriod=INT)? &
 		//       ('Number_of_periods:' numberOfPeriods=INT)? &
 		//       ('Extra_hours:' extraHours=INT)? &
-		//       ('Iterations:' maxIters=INT)? )
+		//       ('Iterations:' maxIters=INT)? &
+		//       ('Start_date:' startDate=DMYDate)? )
 		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
 		
 		//('Input:' input=STRING)
@@ -485,6 +493,18 @@ public class SchedulingGrammarAccess extends AbstractElementFinder.AbstractGramm
 		
 		//INT
 		public RuleCall getMaxItersINTTerminalRuleCall_1_7_1_0() { return cMaxItersINTTerminalRuleCall_1_7_1_0; }
+		
+		//('Start_date:' startDate=DMYDate)?
+		public Group getGroup_1_8() { return cGroup_1_8; }
+		
+		//'Start_date:'
+		public Keyword getStart_dateKeyword_1_8_0() { return cStart_dateKeyword_1_8_0; }
+		
+		//startDate=DMYDate
+		public Assignment getStartDateAssignment_1_8_1() { return cStartDateAssignment_1_8_1; }
+		
+		//DMYDate
+		public RuleCall getStartDateDMYDateParserRuleCall_1_8_1_0() { return cStartDateDMYDateParserRuleCall_1_8_1_0; }
 	}
 	public class ListElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.uniovi.dsl.scheduling.Scheduling.List");
@@ -514,6 +534,104 @@ public class SchedulingGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//ID
 		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
 	}
+	public class DateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.uniovi.dsl.scheduling.Scheduling.Date");
+		private final RuleCall cDMYDateParserRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//Date
+		//    : DMYDate
+		//    ;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//DMYDate
+		public RuleCall getDMYDateParserRuleCall() { return cDMYDateParserRuleCall; }
+	}
+	public class DMYDateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.uniovi.dsl.scheduling.Scheduling.DMYDate");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Assignment cDayAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final RuleCall cDayINTTerminalRuleCall_0_0_0 = (RuleCall)cDayAssignment_0_0.eContents().get(0);
+		private final Keyword cHyphenMinusKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Assignment cMonthAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cMonthINTTerminalRuleCall_0_2_0 = (RuleCall)cMonthAssignment_0_2.eContents().get(0);
+		private final Keyword cHyphenMinusKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
+		private final Assignment cYearAssignment_0_4 = (Assignment)cGroup_0.eContents().get(4);
+		private final RuleCall cYearINTTerminalRuleCall_0_4_0 = (RuleCall)cYearAssignment_0_4.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cDayAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cDayINTTerminalRuleCall_1_0_0 = (RuleCall)cDayAssignment_1_0.eContents().get(0);
+		private final Keyword cSolidusKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cMonthAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cMonthINTTerminalRuleCall_1_2_0 = (RuleCall)cMonthAssignment_1_2.eContents().get(0);
+		private final Keyword cSolidusKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		private final Assignment cYearAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
+		private final RuleCall cYearINTTerminalRuleCall_1_4_0 = (RuleCall)cYearAssignment_1_4.eContents().get(0);
+		
+		//DMYDate
+		//    : day=INT '-' month=INT '-' year=INT
+		//    | day=INT '/' month=INT '/' year=INT
+		//    ;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//day=INT '-' month=INT '-' year=INT
+		//   | day=INT '/' month=INT '/' year=INT
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//day=INT '-' month=INT '-' year=INT
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//day=INT
+		public Assignment getDayAssignment_0_0() { return cDayAssignment_0_0; }
+		
+		//INT
+		public RuleCall getDayINTTerminalRuleCall_0_0_0() { return cDayINTTerminalRuleCall_0_0_0; }
+		
+		//'-'
+		public Keyword getHyphenMinusKeyword_0_1() { return cHyphenMinusKeyword_0_1; }
+		
+		//month=INT
+		public Assignment getMonthAssignment_0_2() { return cMonthAssignment_0_2; }
+		
+		//INT
+		public RuleCall getMonthINTTerminalRuleCall_0_2_0() { return cMonthINTTerminalRuleCall_0_2_0; }
+		
+		//'-'
+		public Keyword getHyphenMinusKeyword_0_3() { return cHyphenMinusKeyword_0_3; }
+		
+		//year=INT
+		public Assignment getYearAssignment_0_4() { return cYearAssignment_0_4; }
+		
+		//INT
+		public RuleCall getYearINTTerminalRuleCall_0_4_0() { return cYearINTTerminalRuleCall_0_4_0; }
+		
+		//day=INT '/' month=INT '/' year=INT
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//day=INT
+		public Assignment getDayAssignment_1_0() { return cDayAssignment_1_0; }
+		
+		//INT
+		public RuleCall getDayINTTerminalRuleCall_1_0_0() { return cDayINTTerminalRuleCall_1_0_0; }
+		
+		//'/'
+		public Keyword getSolidusKeyword_1_1() { return cSolidusKeyword_1_1; }
+		
+		//month=INT
+		public Assignment getMonthAssignment_1_2() { return cMonthAssignment_1_2; }
+		
+		//INT
+		public RuleCall getMonthINTTerminalRuleCall_1_2_0() { return cMonthINTTerminalRuleCall_1_2_0; }
+		
+		//'/'
+		public Keyword getSolidusKeyword_1_3() { return cSolidusKeyword_1_3; }
+		
+		//year=INT
+		public Assignment getYearAssignment_1_4() { return cYearAssignment_1_4; }
+		
+		//INT
+		public RuleCall getYearINTTerminalRuleCall_1_4_0() { return cYearINTTerminalRuleCall_1_4_0; }
+	}
 	
 	
 	private final ProgramElements pProgram;
@@ -529,6 +647,8 @@ public class SchedulingGrammarAccess extends AbstractElementFinder.AbstractGramm
 	private final TerminalRule tOPTIONS_HEADER;
 	private final ListElements pList;
 	private final TerminalRule tFLOAT;
+	private final DateElements pDate;
+	private final DMYDateElements pDMYDate;
 	
 	private final Grammar grammar;
 	
@@ -552,6 +672,8 @@ public class SchedulingGrammarAccess extends AbstractElementFinder.AbstractGramm
 		this.tOPTIONS_HEADER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.uniovi.dsl.scheduling.Scheduling.OPTIONS_HEADER");
 		this.pList = new ListElements();
 		this.tFLOAT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.uniovi.dsl.scheduling.Scheduling.FLOAT");
+		this.pDate = new DateElements();
+		this.pDMYDate = new DMYDateElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -673,7 +795,8 @@ public class SchedulingGrammarAccess extends AbstractElementFinder.AbstractGramm
 	//        ('Days_per_period:' daysPerPeriod=INT)? &
 	//        ('Number_of_periods:' numberOfPeriods=INT)? &
 	//        ('Extra_hours:' extraHours=INT)? &
-	//        ('Iterations:' maxIters=INT)? )
+	//        ('Iterations:' maxIters=INT)? &
+	//        ('Start_date:' startDate=DMYDate)? )
 	//    ;
 	public ConfigElements getConfigAccess() {
 		return pConfig;
@@ -704,6 +827,29 @@ public class SchedulingGrammarAccess extends AbstractElementFinder.AbstractGramm
 	//    ;
 	public TerminalRule getFLOATRule() {
 		return tFLOAT;
+	}
+	
+	//Date
+	//    : DMYDate
+	//    ;
+	public DateElements getDateAccess() {
+		return pDate;
+	}
+	
+	public ParserRule getDateRule() {
+		return getDateAccess().getRule();
+	}
+	
+	//DMYDate
+	//    : day=INT '-' month=INT '-' year=INT
+	//    | day=INT '/' month=INT '/' year=INT
+	//    ;
+	public DMYDateElements getDMYDateAccess() {
+		return pDMYDate;
+	}
+	
+	public ParserRule getDMYDateRule() {
+		return getDMYDateAccess().getRule();
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

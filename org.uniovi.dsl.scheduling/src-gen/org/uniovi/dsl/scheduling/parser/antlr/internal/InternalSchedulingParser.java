@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSchedulingParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INSTALLATIONS_HEADER", "RULE_INSTALLATION_TYPE", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_MAINTENANCES_HEADER", "RULE_MAINTENANCE_TYPE", "RULE_OPTIONS_HEADER", "RULE_FLOAT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Name:'", "'Capacity:'", "'Interval:'", "'Periods:'", "'Priority:'", "'Includes:'", "'Installations:'", "'Input:'", "'Random_state:'", "'Prob_before_restriction:'", "'Rate_of_change:'", "'Days_per_period:'", "'Number_of_periods:'", "'Extra_hours:'", "'Iterations:'", "','"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INSTALLATIONS_HEADER", "RULE_INSTALLATION_TYPE", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_MAINTENANCES_HEADER", "RULE_MAINTENANCE_TYPE", "RULE_OPTIONS_HEADER", "RULE_FLOAT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Name:'", "'Capacity:'", "'Interval:'", "'Periods:'", "'Priority:'", "'Includes:'", "'Installations:'", "'Input:'", "'Random_state:'", "'Prob_before_restriction:'", "'Rate_of_change:'", "'Days_per_period:'", "'Number_of_periods:'", "'Extra_hours:'", "'Iterations:'", "'Start_date:'", "','", "'-'", "'/'"
     };
     public static final int RULE_OPTIONS_HEADER=11;
     public static final int RULE_STRING=7;
@@ -30,7 +30,10 @@ public class InternalSchedulingParser extends AbstractInternalAntlrParser {
     public static final int T__17=17;
     public static final int RULE_MAINTENANCES_HEADER=9;
     public static final int T__18=18;
+    public static final int T__33=33;
     public static final int RULE_INSTALLATION_TYPE=5;
+    public static final int T__34=34;
+    public static final int T__35=35;
     public static final int EOF=-1;
     public static final int T__30=30;
     public static final int T__31=31;
@@ -1665,7 +1668,7 @@ public class InternalSchedulingParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConfig"
-    // InternalScheduling.g:649:1: ruleConfig returns [EObject current=null] : (this_OPTIONS_HEADER_0= RULE_OPTIONS_HEADER ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) )+ {...}?) ) ) ) ;
+    // InternalScheduling.g:649:1: ruleConfig returns [EObject current=null] : (this_OPTIONS_HEADER_0= RULE_OPTIONS_HEADER ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) ) ) ) ) ) )+ {...}?) ) ) ) ;
     public final EObject ruleConfig() throws RecognitionException {
         EObject current = null;
 
@@ -1686,38 +1689,41 @@ public class InternalSchedulingParser extends AbstractInternalAntlrParser {
         Token lv_extraHours_15_0=null;
         Token otherlv_16=null;
         Token lv_maxIters_17_0=null;
+        Token otherlv_18=null;
+        EObject lv_startDate_19_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalScheduling.g:655:2: ( (this_OPTIONS_HEADER_0= RULE_OPTIONS_HEADER ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) )+ {...}?) ) ) ) )
-            // InternalScheduling.g:656:2: (this_OPTIONS_HEADER_0= RULE_OPTIONS_HEADER ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) )+ {...}?) ) ) )
+            // InternalScheduling.g:655:2: ( (this_OPTIONS_HEADER_0= RULE_OPTIONS_HEADER ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) ) ) ) ) ) )+ {...}?) ) ) ) )
+            // InternalScheduling.g:656:2: (this_OPTIONS_HEADER_0= RULE_OPTIONS_HEADER ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) ) ) ) ) ) )+ {...}?) ) ) )
             {
-            // InternalScheduling.g:656:2: (this_OPTIONS_HEADER_0= RULE_OPTIONS_HEADER ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) )+ {...}?) ) ) )
-            // InternalScheduling.g:657:3: this_OPTIONS_HEADER_0= RULE_OPTIONS_HEADER ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) )+ {...}?) ) )
+            // InternalScheduling.g:656:2: (this_OPTIONS_HEADER_0= RULE_OPTIONS_HEADER ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) ) ) ) ) ) )+ {...}?) ) ) )
+            // InternalScheduling.g:657:3: this_OPTIONS_HEADER_0= RULE_OPTIONS_HEADER ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) ) ) ) ) ) )+ {...}?) ) )
             {
             this_OPTIONS_HEADER_0=(Token)match(input,RULE_OPTIONS_HEADER,FOLLOW_15); 
 
             			newLeafNode(this_OPTIONS_HEADER_0, grammarAccess.getConfigAccess().getOPTIONS_HEADERTerminalRuleCall_0());
             		
-            // InternalScheduling.g:661:3: ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) )+ {...}?) ) )
-            // InternalScheduling.g:662:4: ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) )+ {...}?) )
+            // InternalScheduling.g:661:3: ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) ) ) ) ) ) )+ {...}?) ) )
+            // InternalScheduling.g:662:4: ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) ) ) ) ) ) )+ {...}?) )
             {
-            // InternalScheduling.g:662:4: ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) )+ {...}?) )
-            // InternalScheduling.g:663:5: ( ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) )+ {...}?)
+            // InternalScheduling.g:662:4: ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) ) ) ) ) ) )+ {...}?) )
+            // InternalScheduling.g:663:5: ( ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) ) ) ) ) ) )+ {...}?)
             {
              
             				  getUnorderedGroupHelper().enter(grammarAccess.getConfigAccess().getUnorderedGroup_1());
             				
-            // InternalScheduling.g:666:5: ( ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) )+ {...}?)
-            // InternalScheduling.g:667:6: ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) )+ {...}?
+            // InternalScheduling.g:666:5: ( ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) ) ) ) ) ) )+ {...}?)
+            // InternalScheduling.g:667:6: ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) ) ) ) ) ) )+ {...}?
             {
-            // InternalScheduling.g:667:6: ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) )+
+            // InternalScheduling.g:667:6: ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) ) ) ) ) ) )+
             int cnt6=0;
             loop6:
             do {
-                int alt6=9;
+                int alt6=10;
                 alt6 = dfa6.predict(input);
                 switch (alt6) {
             	case 1 :
@@ -2296,6 +2302,83 @@ public class InternalSchedulingParser extends AbstractInternalAntlrParser {
 
             	    }
             	    break;
+            	case 9 :
+            	    // InternalScheduling.g:932:4: ({...}? => ( ({...}? => (otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) ) ) ) ) )
+            	    {
+            	    // InternalScheduling.g:932:4: ({...}? => ( ({...}? => (otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) ) ) ) ) )
+            	    // InternalScheduling.g:933:5: {...}? => ( ({...}? => (otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) ) ) ) )
+            	    {
+            	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getConfigAccess().getUnorderedGroup_1(), 8) ) {
+            	        throw new FailedPredicateException(input, "ruleConfig", "getUnorderedGroupHelper().canSelect(grammarAccess.getConfigAccess().getUnorderedGroup_1(), 8)");
+            	    }
+            	    // InternalScheduling.g:933:103: ( ({...}? => (otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) ) ) ) )
+            	    // InternalScheduling.g:934:6: ({...}? => (otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) ) ) )
+            	    {
+
+            	    						getUnorderedGroupHelper().select(grammarAccess.getConfigAccess().getUnorderedGroup_1(), 8);
+            	    					
+            	    // InternalScheduling.g:937:9: ({...}? => (otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) ) ) )
+            	    // InternalScheduling.g:937:10: {...}? => (otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) ) )
+            	    {
+            	    if ( !((true)) ) {
+            	        throw new FailedPredicateException(input, "ruleConfig", "true");
+            	    }
+            	    // InternalScheduling.g:937:19: (otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) ) )
+            	    // InternalScheduling.g:937:20: otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) )
+            	    {
+            	    otherlv_18=(Token)match(input,32,FOLLOW_10); 
+
+            	    									newLeafNode(otherlv_18, grammarAccess.getConfigAccess().getStart_dateKeyword_1_8_0());
+            	    								
+            	    // InternalScheduling.g:941:9: ( (lv_startDate_19_0= ruleDMYDate ) )
+            	    // InternalScheduling.g:942:10: (lv_startDate_19_0= ruleDMYDate )
+            	    {
+            	    // InternalScheduling.g:942:10: (lv_startDate_19_0= ruleDMYDate )
+            	    // InternalScheduling.g:943:11: lv_startDate_19_0= ruleDMYDate
+            	    {
+
+            	    											newCompositeNode(grammarAccess.getConfigAccess().getStartDateDMYDateParserRuleCall_1_8_1_0());
+            	    										
+            	    pushFollow(FOLLOW_16);
+            	    lv_startDate_19_0=ruleDMYDate();
+
+            	    state._fsp--;
+
+
+            	    											if (current==null) {
+            	    												current = createModelElementForParent(grammarAccess.getConfigRule());
+            	    											}
+            	    											set(
+            	    												current,
+            	    												"startDate",
+            	    												lv_startDate_19_0,
+            	    												"org.uniovi.dsl.scheduling.Scheduling.DMYDate");
+            	    											afterParserOrEnumRuleCall();
+            	    										
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+            	     
+            	    						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getConfigAccess().getUnorderedGroup_1());
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
 
             	default :
             	    if ( cnt6 >= 1 ) break loop6;
@@ -2344,7 +2427,7 @@ public class InternalSchedulingParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleList"
-    // InternalScheduling.g:944:1: entryRuleList returns [String current=null] : iv_ruleList= ruleList EOF ;
+    // InternalScheduling.g:978:1: entryRuleList returns [String current=null] : iv_ruleList= ruleList EOF ;
     public final String entryRuleList() throws RecognitionException {
         String current = null;
 
@@ -2352,8 +2435,8 @@ public class InternalSchedulingParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalScheduling.g:944:44: (iv_ruleList= ruleList EOF )
-            // InternalScheduling.g:945:2: iv_ruleList= ruleList EOF
+            // InternalScheduling.g:978:44: (iv_ruleList= ruleList EOF )
+            // InternalScheduling.g:979:2: iv_ruleList= ruleList EOF
             {
              newCompositeNode(grammarAccess.getListRule()); 
             pushFollow(FOLLOW_1);
@@ -2380,7 +2463,7 @@ public class InternalSchedulingParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleList"
-    // InternalScheduling.g:951:1: ruleList returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= ',' this_ID_2= RULE_ID )* ) ;
+    // InternalScheduling.g:985:1: ruleList returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= ',' this_ID_2= RULE_ID )* ) ;
     public final AntlrDatatypeRuleToken ruleList() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2392,11 +2475,11 @@ public class InternalSchedulingParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalScheduling.g:957:2: ( (this_ID_0= RULE_ID (kw= ',' this_ID_2= RULE_ID )* ) )
-            // InternalScheduling.g:958:2: (this_ID_0= RULE_ID (kw= ',' this_ID_2= RULE_ID )* )
+            // InternalScheduling.g:991:2: ( (this_ID_0= RULE_ID (kw= ',' this_ID_2= RULE_ID )* ) )
+            // InternalScheduling.g:992:2: (this_ID_0= RULE_ID (kw= ',' this_ID_2= RULE_ID )* )
             {
-            // InternalScheduling.g:958:2: (this_ID_0= RULE_ID (kw= ',' this_ID_2= RULE_ID )* )
-            // InternalScheduling.g:959:3: this_ID_0= RULE_ID (kw= ',' this_ID_2= RULE_ID )*
+            // InternalScheduling.g:992:2: (this_ID_0= RULE_ID (kw= ',' this_ID_2= RULE_ID )* )
+            // InternalScheduling.g:993:3: this_ID_0= RULE_ID (kw= ',' this_ID_2= RULE_ID )*
             {
             this_ID_0=(Token)match(input,RULE_ID,FOLLOW_18); 
 
@@ -2405,22 +2488,22 @@ public class InternalSchedulingParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(this_ID_0, grammarAccess.getListAccess().getIDTerminalRuleCall_0());
             		
-            // InternalScheduling.g:966:3: (kw= ',' this_ID_2= RULE_ID )*
+            // InternalScheduling.g:1000:3: (kw= ',' this_ID_2= RULE_ID )*
             loop7:
             do {
                 int alt7=2;
                 int LA7_0 = input.LA(1);
 
-                if ( (LA7_0==32) ) {
+                if ( (LA7_0==33) ) {
                     alt7=1;
                 }
 
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalScheduling.g:967:4: kw= ',' this_ID_2= RULE_ID
+            	    // InternalScheduling.g:1001:4: kw= ',' this_ID_2= RULE_ID
             	    {
-            	    kw=(Token)match(input,32,FOLLOW_6); 
+            	    kw=(Token)match(input,33,FOLLOW_6); 
 
             	    				current.merge(kw);
             	    				newLeafNode(kw, grammarAccess.getListAccess().getCommaKeyword_1_0());
@@ -2462,18 +2545,323 @@ public class InternalSchedulingParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end "ruleList"
 
+
+    // $ANTLR start "entryRuleDMYDate"
+    // InternalScheduling.g:1018:1: entryRuleDMYDate returns [EObject current=null] : iv_ruleDMYDate= ruleDMYDate EOF ;
+    public final EObject entryRuleDMYDate() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleDMYDate = null;
+
+
+        try {
+            // InternalScheduling.g:1018:48: (iv_ruleDMYDate= ruleDMYDate EOF )
+            // InternalScheduling.g:1019:2: iv_ruleDMYDate= ruleDMYDate EOF
+            {
+             newCompositeNode(grammarAccess.getDMYDateRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleDMYDate=ruleDMYDate();
+
+            state._fsp--;
+
+             current =iv_ruleDMYDate; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleDMYDate"
+
+
+    // $ANTLR start "ruleDMYDate"
+    // InternalScheduling.g:1025:1: ruleDMYDate returns [EObject current=null] : ( ( ( (lv_day_0_0= RULE_INT ) ) otherlv_1= '-' ( (lv_month_2_0= RULE_INT ) ) otherlv_3= '-' ( (lv_year_4_0= RULE_INT ) ) ) | ( ( (lv_day_5_0= RULE_INT ) ) otherlv_6= '/' ( (lv_month_7_0= RULE_INT ) ) otherlv_8= '/' ( (lv_year_9_0= RULE_INT ) ) ) ) ;
+    public final EObject ruleDMYDate() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_day_0_0=null;
+        Token otherlv_1=null;
+        Token lv_month_2_0=null;
+        Token otherlv_3=null;
+        Token lv_year_4_0=null;
+        Token lv_day_5_0=null;
+        Token otherlv_6=null;
+        Token lv_month_7_0=null;
+        Token otherlv_8=null;
+        Token lv_year_9_0=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalScheduling.g:1031:2: ( ( ( ( (lv_day_0_0= RULE_INT ) ) otherlv_1= '-' ( (lv_month_2_0= RULE_INT ) ) otherlv_3= '-' ( (lv_year_4_0= RULE_INT ) ) ) | ( ( (lv_day_5_0= RULE_INT ) ) otherlv_6= '/' ( (lv_month_7_0= RULE_INT ) ) otherlv_8= '/' ( (lv_year_9_0= RULE_INT ) ) ) ) )
+            // InternalScheduling.g:1032:2: ( ( ( (lv_day_0_0= RULE_INT ) ) otherlv_1= '-' ( (lv_month_2_0= RULE_INT ) ) otherlv_3= '-' ( (lv_year_4_0= RULE_INT ) ) ) | ( ( (lv_day_5_0= RULE_INT ) ) otherlv_6= '/' ( (lv_month_7_0= RULE_INT ) ) otherlv_8= '/' ( (lv_year_9_0= RULE_INT ) ) ) )
+            {
+            // InternalScheduling.g:1032:2: ( ( ( (lv_day_0_0= RULE_INT ) ) otherlv_1= '-' ( (lv_month_2_0= RULE_INT ) ) otherlv_3= '-' ( (lv_year_4_0= RULE_INT ) ) ) | ( ( (lv_day_5_0= RULE_INT ) ) otherlv_6= '/' ( (lv_month_7_0= RULE_INT ) ) otherlv_8= '/' ( (lv_year_9_0= RULE_INT ) ) ) )
+            int alt8=2;
+            int LA8_0 = input.LA(1);
+
+            if ( (LA8_0==RULE_INT) ) {
+                int LA8_1 = input.LA(2);
+
+                if ( (LA8_1==34) ) {
+                    alt8=1;
+                }
+                else if ( (LA8_1==35) ) {
+                    alt8=2;
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 8, 1, input);
+
+                    throw nvae;
+                }
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 8, 0, input);
+
+                throw nvae;
+            }
+            switch (alt8) {
+                case 1 :
+                    // InternalScheduling.g:1033:3: ( ( (lv_day_0_0= RULE_INT ) ) otherlv_1= '-' ( (lv_month_2_0= RULE_INT ) ) otherlv_3= '-' ( (lv_year_4_0= RULE_INT ) ) )
+                    {
+                    // InternalScheduling.g:1033:3: ( ( (lv_day_0_0= RULE_INT ) ) otherlv_1= '-' ( (lv_month_2_0= RULE_INT ) ) otherlv_3= '-' ( (lv_year_4_0= RULE_INT ) ) )
+                    // InternalScheduling.g:1034:4: ( (lv_day_0_0= RULE_INT ) ) otherlv_1= '-' ( (lv_month_2_0= RULE_INT ) ) otherlv_3= '-' ( (lv_year_4_0= RULE_INT ) )
+                    {
+                    // InternalScheduling.g:1034:4: ( (lv_day_0_0= RULE_INT ) )
+                    // InternalScheduling.g:1035:5: (lv_day_0_0= RULE_INT )
+                    {
+                    // InternalScheduling.g:1035:5: (lv_day_0_0= RULE_INT )
+                    // InternalScheduling.g:1036:6: lv_day_0_0= RULE_INT
+                    {
+                    lv_day_0_0=(Token)match(input,RULE_INT,FOLLOW_19); 
+
+                    						newLeafNode(lv_day_0_0, grammarAccess.getDMYDateAccess().getDayINTTerminalRuleCall_0_0_0());
+                    					
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getDMYDateRule());
+                    						}
+                    						setWithLastConsumed(
+                    							current,
+                    							"day",
+                    							lv_day_0_0,
+                    							"org.eclipse.xtext.common.Terminals.INT");
+                    					
+
+                    }
+
+
+                    }
+
+                    otherlv_1=(Token)match(input,34,FOLLOW_10); 
+
+                    				newLeafNode(otherlv_1, grammarAccess.getDMYDateAccess().getHyphenMinusKeyword_0_1());
+                    			
+                    // InternalScheduling.g:1056:4: ( (lv_month_2_0= RULE_INT ) )
+                    // InternalScheduling.g:1057:5: (lv_month_2_0= RULE_INT )
+                    {
+                    // InternalScheduling.g:1057:5: (lv_month_2_0= RULE_INT )
+                    // InternalScheduling.g:1058:6: lv_month_2_0= RULE_INT
+                    {
+                    lv_month_2_0=(Token)match(input,RULE_INT,FOLLOW_19); 
+
+                    						newLeafNode(lv_month_2_0, grammarAccess.getDMYDateAccess().getMonthINTTerminalRuleCall_0_2_0());
+                    					
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getDMYDateRule());
+                    						}
+                    						setWithLastConsumed(
+                    							current,
+                    							"month",
+                    							lv_month_2_0,
+                    							"org.eclipse.xtext.common.Terminals.INT");
+                    					
+
+                    }
+
+
+                    }
+
+                    otherlv_3=(Token)match(input,34,FOLLOW_10); 
+
+                    				newLeafNode(otherlv_3, grammarAccess.getDMYDateAccess().getHyphenMinusKeyword_0_3());
+                    			
+                    // InternalScheduling.g:1078:4: ( (lv_year_4_0= RULE_INT ) )
+                    // InternalScheduling.g:1079:5: (lv_year_4_0= RULE_INT )
+                    {
+                    // InternalScheduling.g:1079:5: (lv_year_4_0= RULE_INT )
+                    // InternalScheduling.g:1080:6: lv_year_4_0= RULE_INT
+                    {
+                    lv_year_4_0=(Token)match(input,RULE_INT,FOLLOW_2); 
+
+                    						newLeafNode(lv_year_4_0, grammarAccess.getDMYDateAccess().getYearINTTerminalRuleCall_0_4_0());
+                    					
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getDMYDateRule());
+                    						}
+                    						setWithLastConsumed(
+                    							current,
+                    							"year",
+                    							lv_year_4_0,
+                    							"org.eclipse.xtext.common.Terminals.INT");
+                    					
+
+                    }
+
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalScheduling.g:1098:3: ( ( (lv_day_5_0= RULE_INT ) ) otherlv_6= '/' ( (lv_month_7_0= RULE_INT ) ) otherlv_8= '/' ( (lv_year_9_0= RULE_INT ) ) )
+                    {
+                    // InternalScheduling.g:1098:3: ( ( (lv_day_5_0= RULE_INT ) ) otherlv_6= '/' ( (lv_month_7_0= RULE_INT ) ) otherlv_8= '/' ( (lv_year_9_0= RULE_INT ) ) )
+                    // InternalScheduling.g:1099:4: ( (lv_day_5_0= RULE_INT ) ) otherlv_6= '/' ( (lv_month_7_0= RULE_INT ) ) otherlv_8= '/' ( (lv_year_9_0= RULE_INT ) )
+                    {
+                    // InternalScheduling.g:1099:4: ( (lv_day_5_0= RULE_INT ) )
+                    // InternalScheduling.g:1100:5: (lv_day_5_0= RULE_INT )
+                    {
+                    // InternalScheduling.g:1100:5: (lv_day_5_0= RULE_INT )
+                    // InternalScheduling.g:1101:6: lv_day_5_0= RULE_INT
+                    {
+                    lv_day_5_0=(Token)match(input,RULE_INT,FOLLOW_20); 
+
+                    						newLeafNode(lv_day_5_0, grammarAccess.getDMYDateAccess().getDayINTTerminalRuleCall_1_0_0());
+                    					
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getDMYDateRule());
+                    						}
+                    						setWithLastConsumed(
+                    							current,
+                    							"day",
+                    							lv_day_5_0,
+                    							"org.eclipse.xtext.common.Terminals.INT");
+                    					
+
+                    }
+
+
+                    }
+
+                    otherlv_6=(Token)match(input,35,FOLLOW_10); 
+
+                    				newLeafNode(otherlv_6, grammarAccess.getDMYDateAccess().getSolidusKeyword_1_1());
+                    			
+                    // InternalScheduling.g:1121:4: ( (lv_month_7_0= RULE_INT ) )
+                    // InternalScheduling.g:1122:5: (lv_month_7_0= RULE_INT )
+                    {
+                    // InternalScheduling.g:1122:5: (lv_month_7_0= RULE_INT )
+                    // InternalScheduling.g:1123:6: lv_month_7_0= RULE_INT
+                    {
+                    lv_month_7_0=(Token)match(input,RULE_INT,FOLLOW_20); 
+
+                    						newLeafNode(lv_month_7_0, grammarAccess.getDMYDateAccess().getMonthINTTerminalRuleCall_1_2_0());
+                    					
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getDMYDateRule());
+                    						}
+                    						setWithLastConsumed(
+                    							current,
+                    							"month",
+                    							lv_month_7_0,
+                    							"org.eclipse.xtext.common.Terminals.INT");
+                    					
+
+                    }
+
+
+                    }
+
+                    otherlv_8=(Token)match(input,35,FOLLOW_10); 
+
+                    				newLeafNode(otherlv_8, grammarAccess.getDMYDateAccess().getSolidusKeyword_1_3());
+                    			
+                    // InternalScheduling.g:1143:4: ( (lv_year_9_0= RULE_INT ) )
+                    // InternalScheduling.g:1144:5: (lv_year_9_0= RULE_INT )
+                    {
+                    // InternalScheduling.g:1144:5: (lv_year_9_0= RULE_INT )
+                    // InternalScheduling.g:1145:6: lv_year_9_0= RULE_INT
+                    {
+                    lv_year_9_0=(Token)match(input,RULE_INT,FOLLOW_2); 
+
+                    						newLeafNode(lv_year_9_0, grammarAccess.getDMYDateAccess().getYearINTTerminalRuleCall_1_4_0());
+                    					
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getDMYDateRule());
+                    						}
+                    						setWithLastConsumed(
+                    							current,
+                    							"year",
+                    							lv_year_9_0,
+                    							"org.eclipse.xtext.common.Terminals.INT");
+                    					
+
+                    }
+
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleDMYDate"
+
     // Delegated rules
 
 
     protected DFA6 dfa6 = new DFA6(this);
-    static final String dfa_1s = "\12\uffff";
-    static final String dfa_2s = "\1\1\11\uffff";
-    static final String dfa_3s = "\1\4\11\uffff";
-    static final String dfa_4s = "\1\37\11\uffff";
-    static final String dfa_5s = "\1\uffff\1\11\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10";
-    static final String dfa_6s = "\1\0\11\uffff}>";
+    static final String dfa_1s = "\13\uffff";
+    static final String dfa_2s = "\1\1\12\uffff";
+    static final String dfa_3s = "\1\4\12\uffff";
+    static final String dfa_4s = "\1\40\12\uffff";
+    static final String dfa_5s = "\1\uffff\1\12\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11";
+    static final String dfa_6s = "\1\0\12\uffff}>";
     static final String[] dfa_7s = {
-            "\1\1\4\uffff\1\1\1\uffff\1\1\14\uffff\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11",
+            "\1\1\4\uffff\1\1\1\uffff\1\1\14\uffff\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12",
+            "",
             "",
             "",
             "",
@@ -2507,7 +2895,7 @@ public class InternalSchedulingParser extends AbstractInternalAntlrParser {
             this.transition = dfa_7;
         }
         public String getDescription() {
-            return "()+ loopback of 667:6: ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) )+";
+            return "()+ loopback of 667:6: ( ({...}? => ( ({...}? => (otherlv_2= 'Input:' ( (lv_input_3_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_4= 'Random_state:' ( (lv_randomState_5_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'Prob_before_restriction:' ( (lv_probBeforeScheduling_7_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'Rate_of_change:' ( (lv_rateOfChange_9_0= RULE_FLOAT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= 'Days_per_period:' ( (lv_daysPerPeriod_11_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_12= 'Number_of_periods:' ( (lv_numberOfPeriods_13_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= 'Extra_hours:' ( (lv_extraHours_15_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'Iterations:' ( (lv_maxIters_17_0= RULE_INT ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= 'Start_date:' ( (lv_startDate_19_0= ruleDMYDate ) ) ) ) ) ) )+";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -2538,6 +2926,8 @@ public class InternalSchedulingParser extends AbstractInternalAntlrParser {
 
                         else if ( LA6_0 == 31 && getUnorderedGroupHelper().canSelect(grammarAccess.getConfigAccess().getUnorderedGroup_1(), 7) ) {s = 9;}
 
+                        else if ( LA6_0 == 32 && getUnorderedGroupHelper().canSelect(grammarAccess.getConfigAccess().getUnorderedGroup_1(), 8) ) {s = 10;}
+
                          
                         input.seek(index6_0);
                         if ( s>=0 ) return s;
@@ -2565,9 +2955,11 @@ public class InternalSchedulingParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000402L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000FA0000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000FA0002L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x00000000FF000000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x00000000FF000002L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x00000001FF000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x00000001FF000002L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000100000002L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000200000002L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000800000000L});
 
 }

@@ -370,13 +370,87 @@ public interface SchedulingPackage extends EPackage
   int CONFIG__MAX_ITERS = 7;
 
   /**
+   * The feature id for the '<em><b>Start Date</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONFIG__START_DATE = 8;
+
+  /**
    * The number of structural features of the '<em>Config</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONFIG_FEATURE_COUNT = 8;
+  int CONFIG_FEATURE_COUNT = 9;
+
+  /**
+   * The meta object id for the '{@link org.uniovi.dsl.scheduling.scheduling.impl.DateImpl <em>Date</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.uniovi.dsl.scheduling.scheduling.impl.DateImpl
+   * @see org.uniovi.dsl.scheduling.scheduling.impl.SchedulingPackageImpl#getDate()
+   * @generated
+   */
+  int DATE = 6;
+
+  /**
+   * The number of structural features of the '<em>Date</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATE_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.uniovi.dsl.scheduling.scheduling.impl.DMYDateImpl <em>DMY Date</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.uniovi.dsl.scheduling.scheduling.impl.DMYDateImpl
+   * @see org.uniovi.dsl.scheduling.scheduling.impl.SchedulingPackageImpl#getDMYDate()
+   * @generated
+   */
+  int DMY_DATE = 7;
+
+  /**
+   * The feature id for the '<em><b>Day</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DMY_DATE__DAY = DATE_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Month</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DMY_DATE__MONTH = DATE_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Year</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DMY_DATE__YEAR = DATE_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>DMY Date</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DMY_DATE_FEATURE_COUNT = DATE_FEATURE_COUNT + 3;
 
 
   /**
@@ -693,6 +767,70 @@ public interface SchedulingPackage extends EPackage
   EAttribute getConfig_MaxIters();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.uniovi.dsl.scheduling.scheduling.Config#getStartDate <em>Start Date</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Start Date</em>'.
+   * @see org.uniovi.dsl.scheduling.scheduling.Config#getStartDate()
+   * @see #getConfig()
+   * @generated
+   */
+  EReference getConfig_StartDate();
+
+  /**
+   * Returns the meta object for class '{@link org.uniovi.dsl.scheduling.scheduling.Date <em>Date</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Date</em>'.
+   * @see org.uniovi.dsl.scheduling.scheduling.Date
+   * @generated
+   */
+  EClass getDate();
+
+  /**
+   * Returns the meta object for class '{@link org.uniovi.dsl.scheduling.scheduling.DMYDate <em>DMY Date</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>DMY Date</em>'.
+   * @see org.uniovi.dsl.scheduling.scheduling.DMYDate
+   * @generated
+   */
+  EClass getDMYDate();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.uniovi.dsl.scheduling.scheduling.DMYDate#getDay <em>Day</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Day</em>'.
+   * @see org.uniovi.dsl.scheduling.scheduling.DMYDate#getDay()
+   * @see #getDMYDate()
+   * @generated
+   */
+  EAttribute getDMYDate_Day();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.uniovi.dsl.scheduling.scheduling.DMYDate#getMonth <em>Month</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Month</em>'.
+   * @see org.uniovi.dsl.scheduling.scheduling.DMYDate#getMonth()
+   * @see #getDMYDate()
+   * @generated
+   */
+  EAttribute getDMYDate_Month();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.uniovi.dsl.scheduling.scheduling.DMYDate#getYear <em>Year</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Year</em>'.
+   * @see org.uniovi.dsl.scheduling.scheduling.DMYDate#getYear()
+   * @see #getDMYDate()
+   * @generated
+   */
+  EAttribute getDMYDate_Year();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -958,6 +1096,58 @@ public interface SchedulingPackage extends EPackage
      * @generated
      */
     EAttribute CONFIG__MAX_ITERS = eINSTANCE.getConfig_MaxIters();
+
+    /**
+     * The meta object literal for the '<em><b>Start Date</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONFIG__START_DATE = eINSTANCE.getConfig_StartDate();
+
+    /**
+     * The meta object literal for the '{@link org.uniovi.dsl.scheduling.scheduling.impl.DateImpl <em>Date</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.uniovi.dsl.scheduling.scheduling.impl.DateImpl
+     * @see org.uniovi.dsl.scheduling.scheduling.impl.SchedulingPackageImpl#getDate()
+     * @generated
+     */
+    EClass DATE = eINSTANCE.getDate();
+
+    /**
+     * The meta object literal for the '{@link org.uniovi.dsl.scheduling.scheduling.impl.DMYDateImpl <em>DMY Date</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.uniovi.dsl.scheduling.scheduling.impl.DMYDateImpl
+     * @see org.uniovi.dsl.scheduling.scheduling.impl.SchedulingPackageImpl#getDMYDate()
+     * @generated
+     */
+    EClass DMY_DATE = eINSTANCE.getDMYDate();
+
+    /**
+     * The meta object literal for the '<em><b>Day</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DMY_DATE__DAY = eINSTANCE.getDMYDate_Day();
+
+    /**
+     * The meta object literal for the '<em><b>Month</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DMY_DATE__MONTH = eINSTANCE.getDMYDate_Month();
+
+    /**
+     * The meta object literal for the '<em><b>Year</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DMY_DATE__YEAR = eINSTANCE.getDMYDate_Year();
 
   }
 

@@ -4,13 +4,16 @@
 package org.uniovi.dsl.scheduling.scheduling.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.uniovi.dsl.scheduling.scheduling.Config;
+import org.uniovi.dsl.scheduling.scheduling.DMYDate;
 import org.uniovi.dsl.scheduling.scheduling.SchedulingPackage;
 
 /**
@@ -29,6 +32,7 @@ import org.uniovi.dsl.scheduling.scheduling.SchedulingPackage;
  *   <li>{@link org.uniovi.dsl.scheduling.scheduling.impl.ConfigImpl#getNumberOfPeriods <em>Number Of Periods</em>}</li>
  *   <li>{@link org.uniovi.dsl.scheduling.scheduling.impl.ConfigImpl#getExtraHours <em>Extra Hours</em>}</li>
  *   <li>{@link org.uniovi.dsl.scheduling.scheduling.impl.ConfigImpl#getMaxIters <em>Max Iters</em>}</li>
+ *   <li>{@link org.uniovi.dsl.scheduling.scheduling.impl.ConfigImpl#getStartDate <em>Start Date</em>}</li>
  * </ul>
  *
  * @generated
@@ -194,6 +198,16 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
    * @ordered
    */
   protected int maxIters = MAX_ITERS_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getStartDate() <em>Start Date</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStartDate()
+   * @generated
+   * @ordered
+   */
+  protected DMYDate startDate;
 
   /**
    * <!-- begin-user-doc -->
@@ -422,6 +436,72 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
    * @generated
    */
   @Override
+  public DMYDate getStartDate()
+  {
+    return startDate;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetStartDate(DMYDate newStartDate, NotificationChain msgs)
+  {
+    DMYDate oldStartDate = startDate;
+    startDate = newStartDate;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SchedulingPackage.CONFIG__START_DATE, oldStartDate, newStartDate);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setStartDate(DMYDate newStartDate)
+  {
+    if (newStartDate != startDate)
+    {
+      NotificationChain msgs = null;
+      if (startDate != null)
+        msgs = ((InternalEObject)startDate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SchedulingPackage.CONFIG__START_DATE, null, msgs);
+      if (newStartDate != null)
+        msgs = ((InternalEObject)newStartDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SchedulingPackage.CONFIG__START_DATE, null, msgs);
+      msgs = basicSetStartDate(newStartDate, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SchedulingPackage.CONFIG__START_DATE, newStartDate, newStartDate));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case SchedulingPackage.CONFIG__START_DATE:
+        return basicSetStartDate(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -442,6 +522,8 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
         return getExtraHours();
       case SchedulingPackage.CONFIG__MAX_ITERS:
         return getMaxIters();
+      case SchedulingPackage.CONFIG__START_DATE:
+        return getStartDate();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -479,6 +561,9 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
         return;
       case SchedulingPackage.CONFIG__MAX_ITERS:
         setMaxIters((Integer)newValue);
+        return;
+      case SchedulingPackage.CONFIG__START_DATE:
+        setStartDate((DMYDate)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -518,6 +603,9 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
       case SchedulingPackage.CONFIG__MAX_ITERS:
         setMaxIters(MAX_ITERS_EDEFAULT);
         return;
+      case SchedulingPackage.CONFIG__START_DATE:
+        setStartDate((DMYDate)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -548,6 +636,8 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
         return extraHours != EXTRA_HOURS_EDEFAULT;
       case SchedulingPackage.CONFIG__MAX_ITERS:
         return maxIters != MAX_ITERS_EDEFAULT;
+      case SchedulingPackage.CONFIG__START_DATE:
+        return startDate != null;
     }
     return super.eIsSet(featureID);
   }
