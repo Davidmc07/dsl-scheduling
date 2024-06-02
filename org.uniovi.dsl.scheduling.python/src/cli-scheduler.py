@@ -87,5 +87,6 @@ run_MCTS(
     m=args.rate_of_change, 
     max_iter=args.max_iters, 
     out_filename=args.output,
-    path=args.path
+    path=args.path,
+    start_date=args.start_date
 )

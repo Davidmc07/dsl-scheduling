@@ -5,8 +5,8 @@ from .Plane import *
 from .mcts import *
 from .logger import *
 from .dashboard import *
-import os
-import json
+from datetime import datetime
+import os, json
 
 def run_MCTS(
     maintenances,
@@ -21,7 +21,8 @@ def run_MCTS(
     out_filename="/output",
     min_reward=5000,
     max_reward=9000,
-    path=None
+    path=None,
+    start_date=datetime.today()
 ):
     """
     Runs the MCTS algorithm
@@ -37,7 +38,8 @@ def run_MCTS(
         prob_before_schedule=prob_before_schedule,
         m=m, 
         min_reward_range=min_reward, 
-        max_reward_range=max_reward
+        max_reward_range=max_reward,
+        start_date=start_date
     )
 
     try:

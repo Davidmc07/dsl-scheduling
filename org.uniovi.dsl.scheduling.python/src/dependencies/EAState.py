@@ -1,8 +1,8 @@
-import random
 import math
 import numpy as np
 import pandas as pd
 from copy import deepcopy
+from datetime import datetime
 
 from .mcts import *
 from .Plane import *
@@ -33,6 +33,7 @@ class EAState(MCState):
         m=1, 
         min_reward_range=5000,
         max_reward_range=9000,
+        start_date=datetime.today(),
         last_action=None
     ):
         super().__init__(last_action)
@@ -53,6 +54,7 @@ class EAState(MCState):
         self.scheduling = {}
         self.solution_status = {}
         self.string_debug = ""
+        self.start_date=start_date
 
     def __deepcopy__(self, memodict={}):
         '''
@@ -66,7 +68,8 @@ class EAState(MCState):
             self.prob_before_schedule,
             self.m,
             self.min_reward_range,
-            self.max_reward_range
+            self.max_reward_range,
+            self.start_date
         )
         eas.planes = deepcopy(self.planes, memodict)
         eas.scheduling = deepcopy(self.scheduling, memodict)
