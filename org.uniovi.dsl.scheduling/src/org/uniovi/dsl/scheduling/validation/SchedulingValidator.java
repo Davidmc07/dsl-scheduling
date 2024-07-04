@@ -3,13 +3,17 @@
  */
 package org.uniovi.dsl.scheduling.validation;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
-import org.uniovi.dsl.scheduling.scheduling.Config;
+import org.uniovi.dsl.scheduling.scheduling.DMYDate;
 import org.uniovi.dsl.scheduling.scheduling.InstallationDef;
 import org.uniovi.dsl.scheduling.scheduling.Installations;
 import org.uniovi.dsl.scheduling.scheduling.MaintDef;
@@ -92,6 +96,41 @@ public class SchedulingValidator extends AbstractSchedulingValidator {
 		if (!places.containsAll(maintInstallations)) {
 			error("Installation not defined", SchedulingPackage.Literals.MAINT_DEF__INSTALLATIONS);
 		}
+	}
+	
+	@Check
+	public void checkDMYDate(DMYDate date) {
+		String dateStr = date.getDay() + "-";
+		dateStr += date.getMonth() + "-";
+		dateStr += date.getYear();
+		
+		if (!isValidDate(date.getDay()+"-01-2000", "dd-MM-yyyy")) {
+			error("Date day not valid. Expected dd-MM-yyyy format", SchedulingPackage.Literals.DMY_DATE__DAY);
+		}
+		else if (!isValidDate("01-"+date.getMonth()+"-2000", "dd-MM-yyyy")) {
+			error("Date month not valid. Expected dd-MM-yyyy format", SchedulingPackage.Literals.DMY_DATE__MONTH);
+		}
+		else if (!isValidDate("01-01-"+date.getYear(), "dd-MM-yyyy")) {
+			error("Date year not valid. Expected dd-MM-yyyy format", SchedulingPackage.Literals.DMY_DATE__YEAR);
+		}
+		else if (date.getYear() < 1700 || date.getYear() > 2200) {
+			error("Date year must be in range [1700, 2200]. Expected dd-MM-yyyy format", SchedulingPackage.Literals.DMY_DATE__YEAR);
+		}
+		else if (!isValidDate(dateStr, "dd-MM-yyyy")) {
+			error("Date not valid. Expected dd-MM-yyyy format", SchedulingPackage.Literals.DMY_DATE__DAY);
+		}
+	}
+	
+	private boolean isValidDate(String date, String format) {
+		try {
+			DateFormat df = new SimpleDateFormat(format);
+	        df.setLenient(false);
+	        Date d = df.parse(date);
+	        System.out.println(d.toGMTString());
+	        return true;
+	    } catch (ParseException e) {
+	        return false;
+	    }
 	}
 	
 }

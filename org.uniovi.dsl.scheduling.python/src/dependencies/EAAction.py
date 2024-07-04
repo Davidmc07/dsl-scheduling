@@ -1,4 +1,5 @@
 from .mcts.MCAction import *
+from datetime import timedelta
 import random
 
 class EAAction(MCAction):
@@ -28,8 +29,10 @@ class EAAction(MCAction):
             else:
                 self._update_acc_probability(state, plane)
             
-        state.scheduling[f"Period {state.current_period}"] = scheduling
-        self._update_solution_status(state)
+        date = state.start_date + timedelta(days=(state.current_period-1)*state.days_per_period)
+        date_str = date.strftime("%Y-%m-%d")
+        state.scheduling[date_str] = scheduling
+        self._update_solution_status(state, date_str)
         state.pass_time()
 
     def _enter_maintenance(self, state, plane, scheduling):
@@ -39,7 +42,8 @@ class EAAction(MCAction):
         scheduling.append({
             "ID": plane.id,
             "Maintenance": plane.maint_manager.current_maintenance.name,
-            "Duration": plane.maint_manager.current_maintenance.duration,
+            "Duration (periods)": plane.maint_manager.current_maintenance.duration,
+            "Duration (days)": plane.maint_manager.current_maintenance.duration * state.days_per_period,
             "Installation": plane.maint_manager.maint_place.name,
             "Current usage": flight_hours,
             "Total usage": plane.total_flight_hours
@@ -50,7 +54,7 @@ class EAAction(MCAction):
         current_acc = prev_acc + (1-prev_acc) *  self.probabilities[plane.id]
         state.accumulated_probabilities[plane.id] = current_acc
 
-    def _update_solution_status(self, state):
+    def _update_solution_status(self, state, date_str):
         partial_solution = {}
         for plane in state.planes:
             partial_solution[plane.id] = {
@@ -59,4 +63,4 @@ class EAAction(MCAction):
                 "Active": plane.is_active()
             }
 
-        state.solution_status[f"Period {state.current_period}"] = partial_solution
+        state.solution_status[date_str] = partial_solution

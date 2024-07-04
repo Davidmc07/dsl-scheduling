@@ -1,5 +1,6 @@
-from plane_scheduling import *
-import os, argparse, json
+from dependencies import *
+import argparse, json
+from datetime import datetime
 import warnings; 
 warnings.filterwarnings('ignore')
 import sys; sys.stdout.reconfigure(encoding='utf-8')
@@ -41,6 +42,14 @@ class ParseInstallationAction(argparse.Action):
 
         return res
 
+def date_type(date_str: str) -> datetime:
+    try: 
+        if '/' in date_str:
+            return datetime.strptime(date_str, "%d/%m/%Y")
+        else:
+            return datetime.strptime(date_str, "%d-%m-%Y")
+    except ValueError: 
+        raise argparse.ArgumentTypeError(f"Not a valid date: {date_str!r}")
     
 parser = argparse.ArgumentParser()
 parser.add_argument('--path', required=False, type=str, default=None)
@@ -59,6 +68,8 @@ parser.add_argument('--prob-before-scheduling', required=False, type=int, defaul
 parser.add_argument('--rate-of-change', required=False, type=int, default=5)
 parser.add_argument('--max-iters', required=False, type=int, default=5)
 
+parser.add_argument('--start-date', required=False, type=date_type, default=datetime.today(), help="Start Date (YYYY-MM-DD)", )
+
 args = parser.parse_args()
 
 Logger.new_file(args.dsl_filename)
@@ -74,5 +85,6 @@ run_MCTS(
     m=args.rate_of_change, 
     max_iter=args.max_iters, 
     out_filename=args.output,
-    path=args.path
+    path=args.path,
+    start_date=args.start_date
 )

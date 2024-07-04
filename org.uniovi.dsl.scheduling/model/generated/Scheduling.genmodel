@@ -40,6 +40,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//Config/numberOfPeriods"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//Config/extraHours"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//Config/maxIters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Scheduling.ecore#//Config/startDate"/>
+    </genClasses>
+    <genClasses ecoreClass="Scheduling.ecore#//Date"/>
+    <genClasses ecoreClass="Scheduling.ecore#//DMYDate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//DMYDate/day"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//DMYDate/month"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//DMYDate/year"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

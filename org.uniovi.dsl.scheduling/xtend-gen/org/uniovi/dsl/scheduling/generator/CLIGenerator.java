@@ -14,6 +14,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.util.PolymorphicDispatcher;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.uniovi.dsl.scheduling.scheduling.Config;
+import org.uniovi.dsl.scheduling.scheduling.DMYDate;
 import org.uniovi.dsl.scheduling.scheduling.InstallationDef;
 import org.uniovi.dsl.scheduling.scheduling.Installations;
 import org.uniovi.dsl.scheduling.scheduling.MaintDef;
@@ -76,14 +77,14 @@ public class CLIGenerator {
         _builder.append("\"id\":\"");
         String _id = installation.getId();
         _builder.append(_id);
-        _builder.append("\", ");
+        _builder.append("\",");
         str = (_str + _builder);
         String _str_1 = str;
         StringConcatenation _builder_1 = new StringConcatenation();
         _builder_1.append("\"name\":\"");
         String _name = this.getName(installation);
         _builder_1.append(_name);
-        _builder_1.append("\", ");
+        _builder_1.append("\",");
         str = (_str_1 + _builder_1);
         String _str_2 = str;
         StringConcatenation _builder_2 = new StringConcatenation();
@@ -123,7 +124,7 @@ public class CLIGenerator {
         _builder.append("\"id\":\"");
         String _id = maint.getId();
         _builder.append(_id);
-        _builder.append("\", ");
+        _builder.append("\",");
         str = (_str + _builder);
         String _str_1 = str;
         StringConcatenation _builder_1 = new StringConcatenation();
@@ -137,35 +138,35 @@ public class CLIGenerator {
           _xifexpression = maint.getMaintName();
         }
         _builder_1.append(_xifexpression);
-        _builder_1.append("\", ");
+        _builder_1.append("\",");
         str = (_str_1 + _builder_1);
         String _str_2 = str;
         StringConcatenation _builder_2 = new StringConcatenation();
         _builder_2.append("\"flight_hours\":");
         int _hours = maint.getHours();
         _builder_2.append(_hours);
-        _builder_2.append(", ");
+        _builder_2.append(",");
         str = (_str_2 + _builder_2);
         String _str_3 = str;
         StringConcatenation _builder_3 = new StringConcatenation();
         _builder_3.append("\"duration\":");
         int _duration = maint.getDuration();
         _builder_3.append(_duration);
-        _builder_3.append(", ");
+        _builder_3.append(",");
         str = (_str_3 + _builder_3);
         String _str_4 = str;
         StringConcatenation _builder_4 = new StringConcatenation();
         _builder_4.append("\"priority\":");
         int _priority = maint.getPriority();
         _builder_4.append(_priority);
-        _builder_4.append(", ");
+        _builder_4.append(",");
         str = (_str_4 + _builder_4);
         String _str_5 = str;
         StringConcatenation _builder_5 = new StringConcatenation();
         _builder_5.append("\"places\":[");
         String _processList = this.processList(maint.getInstallations());
         _builder_5.append(_processList);
-        _builder_5.append("], ");
+        _builder_5.append("],");
         str = (_str_5 + _builder_5);
         String _str_6 = str;
         StringConcatenation _builder_6 = new StringConcatenation();
@@ -239,6 +240,21 @@ public class CLIGenerator {
     if (_greaterThan_2) {
       this.args.add("--max-iters");
       this.args.add(Integer.valueOf(options.getMaxIters()).toString());
+    }
+    DMYDate _startDate = options.getStartDate();
+    boolean _tripleNotEquals_2 = (_startDate != null);
+    if (_tripleNotEquals_2) {
+      this.args.add("--start-date");
+      String dateStr = Integer.valueOf(options.getStartDate().getDay()).toString();
+      String _dateStr = dateStr;
+      String _string_1 = Integer.valueOf(options.getStartDate().getMonth()).toString();
+      String _plus = ("-" + _string_1);
+      dateStr = (_dateStr + _plus);
+      String _dateStr_1 = dateStr;
+      String _string_2 = Integer.valueOf(options.getStartDate().getYear()).toString();
+      String _plus_1 = ("-" + _string_2);
+      dateStr = (_dateStr_1 + _plus_1);
+      this.args.add(dateStr);
     }
     return this.args;
   }

@@ -1,4 +1,6 @@
-','=32
+','=33
+'-'=34
+'/'=35
 'Capacity:'=18
 'Days_per_period:'=28
 'Extra_hours:'=30
@@ -14,6 +16,7 @@
 'Prob_before_restriction:'=26
 'Random_state:'=25
 'Rate_of_change:'=27
+'Start_date:'=32
 RULE_ANY_OTHER=16
 RULE_FLOAT=12
 RULE_ID=6
@@ -43,3 +46,6 @@ T__29=29
 T__30=30
 T__31=31
 T__32=32
+T__33=33
+T__34=34
+T__35=35

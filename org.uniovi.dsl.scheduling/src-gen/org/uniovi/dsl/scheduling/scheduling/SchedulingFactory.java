@@ -78,6 +78,24 @@ public interface SchedulingFactory extends EFactory
   Config createConfig();
 
   /**
+   * Returns a new object of class '<em>Date</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Date</em>'.
+   * @generated
+   */
+  Date createDate();
+
+  /**
+   * Returns a new object of class '<em>DMY Date</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DMY Date</em>'.
+   * @generated
+   */
+  DMYDate createDMYDate();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

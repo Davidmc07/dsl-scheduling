@@ -11,6 +11,8 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.uniovi.dsl.scheduling.scheduling.Config;
+import org.uniovi.dsl.scheduling.scheduling.DMYDate;
+import org.uniovi.dsl.scheduling.scheduling.Date;
 import org.uniovi.dsl.scheduling.scheduling.InstallationDef;
 import org.uniovi.dsl.scheduling.scheduling.Installations;
 import org.uniovi.dsl.scheduling.scheduling.MaintDef;
@@ -68,6 +70,20 @@ public class SchedulingPackageImpl extends EPackageImpl implements SchedulingPac
    * @generated
    */
   private EClass configEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dateEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dmyDateEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -456,6 +472,72 @@ public class SchedulingPackageImpl extends EPackageImpl implements SchedulingPac
    * @generated
    */
   @Override
+  public EReference getConfig_StartDate()
+  {
+    return (EReference)configEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDate()
+  {
+    return dateEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDMYDate()
+  {
+    return dmyDateEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDMYDate_Day()
+  {
+    return (EAttribute)dmyDateEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDMYDate_Month()
+  {
+    return (EAttribute)dmyDateEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDMYDate_Year()
+  {
+    return (EAttribute)dmyDateEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public SchedulingFactory getSchedulingFactory()
   {
     return (SchedulingFactory)getEFactoryInstance();
@@ -515,6 +597,14 @@ public class SchedulingPackageImpl extends EPackageImpl implements SchedulingPac
     createEAttribute(configEClass, CONFIG__NUMBER_OF_PERIODS);
     createEAttribute(configEClass, CONFIG__EXTRA_HOURS);
     createEAttribute(configEClass, CONFIG__MAX_ITERS);
+    createEReference(configEClass, CONFIG__START_DATE);
+
+    dateEClass = createEClass(DATE);
+
+    dmyDateEClass = createEClass(DMY_DATE);
+    createEAttribute(dmyDateEClass, DMY_DATE__DAY);
+    createEAttribute(dmyDateEClass, DMY_DATE__MONTH);
+    createEAttribute(dmyDateEClass, DMY_DATE__YEAR);
   }
 
   /**
@@ -546,6 +636,7 @@ public class SchedulingPackageImpl extends EPackageImpl implements SchedulingPac
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    dmyDateEClass.getESuperTypes().add(this.getDate());
 
     // Initialize classes and features; add operations and parameters
     initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -582,6 +673,14 @@ public class SchedulingPackageImpl extends EPackageImpl implements SchedulingPac
     initEAttribute(getConfig_NumberOfPeriods(), ecorePackage.getEInt(), "numberOfPeriods", null, 0, 1, Config.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getConfig_ExtraHours(), ecorePackage.getEInt(), "extraHours", null, 0, 1, Config.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getConfig_MaxIters(), ecorePackage.getEInt(), "maxIters", null, 0, 1, Config.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConfig_StartDate(), this.getDMYDate(), null, "startDate", null, 0, 1, Config.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dateEClass, Date.class, "Date", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(dmyDateEClass, DMYDate.class, "DMYDate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDMYDate_Day(), ecorePackage.getEInt(), "day", null, 0, 1, DMYDate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDMYDate_Month(), ecorePackage.getEInt(), "month", null, 0, 1, DMYDate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDMYDate_Year(), ecorePackage.getEInt(), "year", null, 0, 1, DMYDate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.uniovi.dsl.scheduling.scheduling.Config#getNumberOfPeriods <em>Number Of Periods</em>}</li>
  *   <li>{@link org.uniovi.dsl.scheduling.scheduling.Config#getExtraHours <em>Extra Hours</em>}</li>
  *   <li>{@link org.uniovi.dsl.scheduling.scheduling.Config#getMaxIters <em>Max Iters</em>}</li>
+ *   <li>{@link org.uniovi.dsl.scheduling.scheduling.Config#getStartDate <em>Start Date</em>}</li>
  * </ul>
  *
  * @see org.uniovi.dsl.scheduling.scheduling.SchedulingPackage#getConfig()
@@ -205,5 +206,27 @@ public interface Config extends EObject
    * @generated
    */
   void setMaxIters(int value);
+
+  /**
+   * Returns the value of the '<em><b>Start Date</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Start Date</em>' containment reference.
+   * @see #setStartDate(DMYDate)
+   * @see org.uniovi.dsl.scheduling.scheduling.SchedulingPackage#getConfig_StartDate()
+   * @model containment="true"
+   * @generated
+   */
+  DMYDate getStartDate();
+
+  /**
+   * Sets the value of the '{@link org.uniovi.dsl.scheduling.scheduling.Config#getStartDate <em>Start Date</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Start Date</em>' containment reference.
+   * @see #getStartDate()
+   * @generated
+   */
+  void setStartDate(DMYDate value);
 
 } // Config

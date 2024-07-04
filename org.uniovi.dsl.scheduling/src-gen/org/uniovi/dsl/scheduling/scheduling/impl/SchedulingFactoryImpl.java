@@ -71,6 +71,8 @@ public class SchedulingFactoryImpl extends EFactoryImpl implements SchedulingFac
       case SchedulingPackage.MAINTENANCES: return createMaintenances();
       case SchedulingPackage.MAINT_DEF: return createMaintDef();
       case SchedulingPackage.CONFIG: return createConfig();
+      case SchedulingPackage.DATE: return createDate();
+      case SchedulingPackage.DMY_DATE: return createDMYDate();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -146,6 +148,30 @@ public class SchedulingFactoryImpl extends EFactoryImpl implements SchedulingFac
   {
     ConfigImpl config = new ConfigImpl();
     return config;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Date createDate()
+  {
+    DateImpl date = new DateImpl();
+    return date;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DMYDate createDMYDate()
+  {
+    DMYDateImpl dmyDate = new DMYDateImpl();
+    return dmyDate;
   }
 
   /**

@@ -31,6 +31,7 @@ public class SchedulingParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, SchedulingGrammarAccess grammarAccess) {
+			builder.put(grammarAccess.getDMYDateAccess().getAlternatives(), "rule__DMYDate__Alternatives");
 			builder.put(grammarAccess.getInstallationsAccess().getGroup(), "rule__Installations__Group__0");
 			builder.put(grammarAccess.getInstallationDefAccess().getGroup(), "rule__InstallationDef__Group__0");
 			builder.put(grammarAccess.getInstallationDefAccess().getGroup_2_0(), "rule__InstallationDef__Group_2_0__0");
@@ -52,8 +53,11 @@ public class SchedulingParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getConfigAccess().getGroup_1_5(), "rule__Config__Group_1_5__0");
 			builder.put(grammarAccess.getConfigAccess().getGroup_1_6(), "rule__Config__Group_1_6__0");
 			builder.put(grammarAccess.getConfigAccess().getGroup_1_7(), "rule__Config__Group_1_7__0");
+			builder.put(grammarAccess.getConfigAccess().getGroup_1_8(), "rule__Config__Group_1_8__0");
 			builder.put(grammarAccess.getListAccess().getGroup(), "rule__List__Group__0");
 			builder.put(grammarAccess.getListAccess().getGroup_1(), "rule__List__Group_1__0");
+			builder.put(grammarAccess.getDMYDateAccess().getGroup_0(), "rule__DMYDate__Group_0__0");
+			builder.put(grammarAccess.getDMYDateAccess().getGroup_1(), "rule__DMYDate__Group_1__0");
 			builder.put(grammarAccess.getProgramAccess().getInstallationsAssignment_0(), "rule__Program__InstallationsAssignment_0");
 			builder.put(grammarAccess.getProgramAccess().getMaintenancesAssignment_1(), "rule__Program__MaintenancesAssignment_1");
 			builder.put(grammarAccess.getProgramAccess().getOptionsAssignment_2(), "rule__Program__OptionsAssignment_2");
@@ -77,6 +81,13 @@ public class SchedulingParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getConfigAccess().getNumberOfPeriodsAssignment_1_5_1(), "rule__Config__NumberOfPeriodsAssignment_1_5_1");
 			builder.put(grammarAccess.getConfigAccess().getExtraHoursAssignment_1_6_1(), "rule__Config__ExtraHoursAssignment_1_6_1");
 			builder.put(grammarAccess.getConfigAccess().getMaxItersAssignment_1_7_1(), "rule__Config__MaxItersAssignment_1_7_1");
+			builder.put(grammarAccess.getConfigAccess().getStartDateAssignment_1_8_1(), "rule__Config__StartDateAssignment_1_8_1");
+			builder.put(grammarAccess.getDMYDateAccess().getDayAssignment_0_0(), "rule__DMYDate__DayAssignment_0_0");
+			builder.put(grammarAccess.getDMYDateAccess().getMonthAssignment_0_2(), "rule__DMYDate__MonthAssignment_0_2");
+			builder.put(grammarAccess.getDMYDateAccess().getYearAssignment_0_4(), "rule__DMYDate__YearAssignment_0_4");
+			builder.put(grammarAccess.getDMYDateAccess().getDayAssignment_1_0(), "rule__DMYDate__DayAssignment_1_0");
+			builder.put(grammarAccess.getDMYDateAccess().getMonthAssignment_1_2(), "rule__DMYDate__MonthAssignment_1_2");
+			builder.put(grammarAccess.getDMYDateAccess().getYearAssignment_1_4(), "rule__DMYDate__YearAssignment_1_4");
 			builder.put(grammarAccess.getProgramAccess().getUnorderedGroup(), "rule__Program__UnorderedGroup");
 			builder.put(grammarAccess.getInstallationDefAccess().getUnorderedGroup_2(), "rule__InstallationDef__UnorderedGroup_2");
 			builder.put(grammarAccess.getMaintDefAccess().getUnorderedGroup_2(), "rule__MaintDef__UnorderedGroup_2");

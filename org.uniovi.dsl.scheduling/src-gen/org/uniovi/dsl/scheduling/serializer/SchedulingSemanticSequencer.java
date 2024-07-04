@@ -13,6 +13,7 @@ import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.uniovi.dsl.scheduling.scheduling.Config;
+import org.uniovi.dsl.scheduling.scheduling.DMYDate;
 import org.uniovi.dsl.scheduling.scheduling.InstallationDef;
 import org.uniovi.dsl.scheduling.scheduling.Installations;
 import org.uniovi.dsl.scheduling.scheduling.MaintDef;
@@ -37,6 +38,9 @@ public class SchedulingSemanticSequencer extends AbstractDelegatingSemanticSeque
 			switch (semanticObject.eClass().getClassifierID()) {
 			case SchedulingPackage.CONFIG:
 				sequence_Config(context, (Config) semanticObject); 
+				return; 
+			case SchedulingPackage.DMY_DATE:
+				sequence_DMYDate(context, (DMYDate) semanticObject); 
 				return; 
 			case SchedulingPackage.INSTALLATION_DEF:
 				sequence_InstallationDef(context, (InstallationDef) semanticObject); 
@@ -72,11 +76,27 @@ public class SchedulingSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         daysPerPeriod=INT | 
 	 *         numberOfPeriods=INT | 
 	 *         extraHours=INT | 
-	 *         maxIters=INT
+	 *         maxIters=INT | 
+	 *         startDate=DMYDate
 	 *     )+
 	 * </pre>
 	 */
 	protected void sequence_Config(ISerializationContext context, Config semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Date returns DMYDate
+	 *     DMYDate returns DMYDate
+	 *
+	 * Constraint:
+	 *     ((day=INT month=INT year=INT) | (day=INT month=INT year=INT))
+	 * </pre>
+	 */
+	protected void sequence_DMYDate(ISerializationContext context, DMYDate semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

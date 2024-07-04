@@ -43,7 +43,8 @@ Config
 		('Days_per_period:' daysPerPeriod=INT)? &
 		('Number_of_periods:' numberOfPeriods=INT)? &
 		('Extra_hours:' extraHours=INT)? &
-		('Iterations:' maxIters=INT)? )
+		('Iterations:' maxIters=INT)? &
+		('Start_date:' startDate=DMYDate)? )
 	;
 terminal OPTIONS_HEADER: '[' 'Options' ']';
 
@@ -54,3 +55,13 @@ List
 terminal FLOAT
 	: (INT)+'.'(INT)+
 	;
+	
+Date
+	: DMYDate
+	;
+	
+DMYDate
+	: day=INT '-' month=INT '-' year=INT
+	| day=INT '/' month=INT '/' year=INT
+	;
+	

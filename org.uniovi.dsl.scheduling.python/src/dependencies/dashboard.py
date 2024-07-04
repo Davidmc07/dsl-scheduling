@@ -3,16 +3,15 @@ import plotly.io as pio
 import pandas as pd
 import plotly.figure_factory as ff
 import matplotlib.cm as cm
-import plotly.express as px
 from plotly.express import line
-import plotly.graph_objects as go
+from datetime import datetime, timedelta
 
 
 def make_report(scheduling, availability_history):
     data = parse_scheduling_json(scheduling)
     fig_sched = make_gantt_chart(data)
-    fig_ongoing = make_maints_ongoing_plot(data, len(scheduling.items()))
-    fig_availability = make_availability_plot(availability_history)
+    fig_ongoing = make_maints_ongoing_plot(data, list(scheduling.keys()))
+    fig_availability = make_availability_plot(availability_history, list(scheduling.keys()))
 
     html = lambda fig: fig.to_html(full_html=False, default_height="90vh")
 
@@ -71,15 +70,16 @@ def parse_scheduling_json(scheduling):
         'Duration': [],
         'Installation': []
     }
+    start = 0
     for period, maintenances in scheduling.items():
         if not maintenances: continue
 
-        start = int(period.split()[1])
+        start = datetime.strptime(period, "%Y-%m-%d")
         for maint in maintenances:
             data['Task'].append(maint['ID'])
             data['Start'].append(start)
-            data['Finish'].append(start + int(maint['Duration']))
-            data['Duration'].append(int(maint['Duration']))
+            data['Finish'].append(start + timedelta(days=int(maint['Duration (days)'])))
+            data['Duration'].append(int(maint['Duration (days)']))
             data['Installation'].append(maint['Installation'])
 
     df = pd.DataFrame(data).sort_values('Task', ascending=True)
@@ -101,10 +101,10 @@ def make_gantt_chart(df):
         showgrid_x=True, 
         showgrid_y=True
     )
-    fig.layout.xaxis.type = 'linear'
+    #fig.layout.xaxis.type = 'linear'
     height = 250 + len(set(df['Task'])) * 30
     fig.update_yaxes(categoryorder='total ascending', title_text='Vehicles')
-    fig.update_xaxes(title_text='Periods')
+    fig.update_xaxes(title_text='Time')
     fig.update_layout(title='Fleet Maintenance Schedule', height=height)
 
     return fig
@@ -115,7 +115,7 @@ def no_maints_gantt(df):
         showgrid_x=True, 
         showgrid_y=True
     )
-    fig.layout.xaxis.type = 'linear'
+    #fig.layout.xaxis.type = 'linear'
     fig.update_layout(title='Fleet Maintenance Schedule')
     fig.add_annotation(
         text="No maintenances scheduled",
@@ -126,20 +126,32 @@ def no_maints_gantt(df):
     return fig
 
 
-def make_availability_plot(availability):
-    fig = line(availability)
+def make_availability_plot(availability, periods):
+    periods.append(get_date_with_diff(periods[-1],1))
+    fig = line(x=periods, y=availability)
     fig.update_yaxes(title_text="Available vehicles")
-    fig.update_xaxes(title_text="Period")
+    fig.update_xaxes(title_text="Time")
     fig.update_layout(title='Vehicle availability', showlegend=False)
     return fig
 
 def make_maints_ongoing_plot(df, periods):
     maints = []
-    for i in range(periods+1):
-        maints.append(sum((df['Start'] <= i) & (df['Finish'] > i)))
+    if len(periods) == 1:
+        periods.append(get_date_with_diff(periods[0],1))
+
+    if df.empty: 
+        maints.extend([0 for _ in range(len(periods))])
+    else:
+        for i in periods:
+            maints.append(sum((df['Start'] <= i) & (df['Finish'] > i)))
     
-    fig = line(maints)
+    fig = line(x=periods, y=maints)
     fig.update_yaxes(title_text="Ongoing maintenances")
-    fig.update_xaxes(title_text="Period")
+    fig.update_xaxes(title_text="Time")
     fig.update_layout(title='Ongoing maintenances per period', showlegend=False)
     return fig
+
+def get_date_with_diff(date_str, days_diff):
+    date = datetime.strptime(date_str, "%Y-%m-%d")
+    diff = timedelta(days=days_diff)
+    return (date + diff).strftime("%Y-%m-%d")
