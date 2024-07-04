@@ -29,6 +29,7 @@ class EAState(MCState):
         days_per_period, 
         additional_hours, 
         number_of_periods, 
+        installations,
         prob_before_schedule=0.5, 
         m=1, 
         min_reward_range=5000,
@@ -49,6 +50,7 @@ class EAState(MCState):
         self.max_reward_range = max_reward_range
         self.current_period = 1
         self.planes = []
+        self.installations = installations
         self.accumulated_probabilities = {}
 
         self.scheduling = {}
@@ -65,6 +67,7 @@ class EAState(MCState):
             self.days_per_period, 
             self.additional_hours, 
             self.number_of_periods,
+            deepcopy(self.installations, memodict),
             self.prob_before_schedule,
             self.m,
             self.min_reward_range,
@@ -173,7 +176,7 @@ class EAState(MCState):
         if place.is_full():
             return False
         else:
-            place.add_plane()
+            place.add_plane(plane)
             return True
         
     def _calculate_probabilities(self, planes):

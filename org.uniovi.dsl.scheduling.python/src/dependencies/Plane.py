@@ -35,7 +35,7 @@ class Plane:
         self.total_flight_hours = total_flight_hours
         self.current_flight_hours = total_flight_hours - max(last_schedules.values())
         self.penalty_hours = 0
-        self.maint_manager = MaintenanceManager(maintenances, last_schedules)
+        self.maint_manager = MaintenanceManager(maintenances, last_schedules, self)
 
     def is_active(self):
         return not self.maint_manager.in_maint

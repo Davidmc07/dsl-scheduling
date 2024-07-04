@@ -10,6 +10,7 @@ import os, json
 
 def run_MCTS(
     maintenances,
+    installations,
     input,
     days_per_period=1, 
     number_of_periods=100, 
@@ -35,6 +36,7 @@ def run_MCTS(
         days_per_period,
         additional_hours,
         number_of_periods, 
+        installations,
         prob_before_schedule=prob_before_schedule,
         m=m, 
         min_reward_range=min_reward, 
