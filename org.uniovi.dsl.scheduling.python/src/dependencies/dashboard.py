@@ -21,7 +21,10 @@ def make_report(scheduling, availability_history):
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="'''+ dbc.themes.DARKLY +'''">
-        <style> .section { display: none; } </style>
+        <style> 
+            .section { display: none; }
+            .selector-rect {fill: #506784 !important;}
+        </style>
     </head>
     <body>
       <script>
