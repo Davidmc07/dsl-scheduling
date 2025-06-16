@@ -29,6 +29,7 @@ class EAState(MCState):
         days_per_period, 
         additional_hours, 
         number_of_periods, 
+        installations,
         prob_before_schedule=0.5, 
         m=1, 
         min_reward_range=5000,
@@ -49,6 +50,7 @@ class EAState(MCState):
         self.max_reward_range = max_reward_range
         self.current_period = 1
         self.planes = []
+        self.installations = installations
         self.accumulated_probabilities = {}
 
         self.scheduling = {}
@@ -65,6 +67,7 @@ class EAState(MCState):
             self.days_per_period, 
             self.additional_hours, 
             self.number_of_periods,
+            deepcopy(self.installations, memodict),
             self.prob_before_schedule,
             self.m,
             self.min_reward_range,
@@ -96,28 +99,64 @@ class EAState(MCState):
         except Exception:
             raise DataFileException(f'File "{filename}" could not be read')
 
-        for _, plane_data in data.iterrows():
-            last_schedules = {m.name: self._get_last_schedule(m, plane_data) for m in maintenances}
+        for i, plane_data in data.iterrows():
+            try:
+                self._validate_input_row(plane_data, i)
+                last_schedules = {m.name: self._get_last_schedule(m, plane_data, i) for m in maintenances}
 
-            plane = Plane(
-                plane_id = plane_data['ID'],
-                flight_hours_per_period = plane_data['Flight hours per day'] * self.days_per_period,
-                total_flight_hours = plane_data['Total flight hours'] if 'Total flight hours' in plane_data else 0,
-                maintenances = maintenances,
-                last_schedules = last_schedules
-            )
-            if ('Active' in plane_data) and (not plane_data['Active']):
-                # The maintDuration of planes.json does not match the expected duration of any maintenance
-                periods_in_maint_left = plane_data['Maint duration'] - plane_data['Count days in maint']
-                elapsed_periods = plane.maint_manager.current_maintenance.duration - periods_in_maint_left
-                plane.enter_maintenance(elapsed_periods)
+                plane = Plane(
+                    plane_id = plane_data['ID'],
+                    flight_hours_per_period = float(plane_data['Usage per day']) * self.days_per_period,
+                    total_flight_hours = float(plane_data['Total usage']) if 'Total usage' in plane_data else 0,
+                    maintenances = maintenances,
+                    last_schedules = last_schedules
+                )
+                if ('Active' in plane_data) and (not plane_data['Active']):
+                    # The maintDuration of planes.json does not match the expected duration of any maintenance
+                    periods_in_maint_left = float(plane_data['Maint duration']) - float(plane_data['Count days in maint'])
+                    elapsed_periods = plane.maint_manager.current_maintenance.duration - periods_in_maint_left
+                    plane.enter_maintenance(elapsed_periods)
 
-            self.planes.append(plane)
-            self.accumulated_probabilities[plane.id] = 0
+                self.planes.append(plane)
+                self.accumulated_probabilities[plane.id] = 0
 
-    def _get_last_schedule(self, maintenance, plane_data):
+            except DataFileException as e:
+                raise e
+            except Exception:
+                raise DataFileException(f'Error processing line number "{i+1}" of the data file')
+
+    def _get_last_schedule(self, maintenance, plane_data, i):
         col_name = f'Last {maintenance.name}'
-        return plane_data[col_name] if col_name in plane_data else 0 
+        if col_name in plane_data:
+            if float(plane_data[col_name]) >= 0:
+                return float(plane_data[col_name])
+            else:
+                raise DataFileException(
+                    f'Error processing line number "{i+1}" of the data file:\n'
+                    +f'  Invalid value for {col_name} field: {plane_data[col_name]}')
+        return 0 
+    
+    def _validate_input_row(self, plane_data, i):
+        base_exception_msg = f'Error processing line number "{i+1}" of the data file:\n  '
+        total_hours = 0
+        try:
+            hours_day = float(plane_data['Usage per day'])
+            maint_duration = float(plane_data['Maint duration'])
+            days_maint = float(plane_data['Count days in maint'])
+            if 'Total usage' in plane_data:
+                total_hours = float(plane_data['Total usage']) 
+        except:
+            raise DataFileException(base_exception_msg + f'Invalid numeric value')
+        
+        if hours_day < 0:
+            raise DataFileException(base_exception_msg + f'Usage per day can not be negative')
+        if maint_duration < 0:
+            raise DataFileException(base_exception_msg + f'Current maintenance duration can not be negative')
+        if days_maint < 0:
+            raise DataFileException(base_exception_msg + f'Number of days under maintenance can not be negative')
+        if total_hours < 0:
+            raise DataFileException(base_exception_msg + f'Total usage can not be negative')
+
 
     def get_total_hours(self):
         '''Return the number of total flight hours among all Planes.'''
@@ -173,7 +212,7 @@ class EAState(MCState):
         if place.is_full():
             return False
         else:
-            place.add_plane()
+            place.add_plane(plane)
             return True
         
     def _calculate_probabilities(self, planes):

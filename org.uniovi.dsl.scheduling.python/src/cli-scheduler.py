@@ -76,6 +76,7 @@ Logger.new_file(args.dsl_filename)
 
 run_MCTS(
     maintenances=globals()['maintenances'], 
+    installations=globals()['installations'],
     input=args.input, 
     days_per_period=args.days_per_period, 
     number_of_periods=args.number_of_periods, 

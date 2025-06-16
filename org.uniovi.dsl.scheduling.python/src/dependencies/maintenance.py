@@ -1,4 +1,3 @@
-
 class MaintenanceManager():
     '''
     Keeps track of the maintenances a plane has to pass.
@@ -10,15 +9,19 @@ class MaintenanceManager():
 
     maintenance_last_schedules : dict
         The flight hours at which the last maintenance of each type was passed.
+
+    plane : Plane
+        The plane to keep track.
     '''
 
-    def __init__(self, maintenances, maintenance_last_schedules):
+    def __init__(self, maintenances, maintenance_last_schedules, plane):
         self.maintenances = maintenances
         self.next_schedules = self._calculate_next_schedules(maintenance_last_schedules)
         self.current_maintenance = self._next_maintenance()
         self.in_maint = False
         self.elapsed_periods_in_maint = 0
         self.maint_place = None
+        self.plane = plane
 
     def periods_to_maintenance(self, total_flight_hours, flight_hours_per_period, penalty_hours=0, additional_flight_hours=0):
         '''
@@ -58,7 +61,7 @@ class MaintenanceManager():
 
         self.elapsed_periods_in_maint = elapsed_periods_in_maint
         self.maint_place = self.current_maintenance.get_place()
-        self.maint_place.add_plane()
+        self.maint_place.add_plane(self.plane)
         self.in_maint = True
         self._update_next_schedules(self.current_maintenance, total_flight_hours)
         self._advance_close_including_maintenances(self.current_maintenance, self.next_schedules)
@@ -87,7 +90,7 @@ class MaintenanceManager():
         '''
 
         self.in_maint = False
-        self.maint_place.remove_plane()
+        self.maint_place.remove_plane(self.plane)
         self.maint_place = None
         self.elapsed_periods_in_maint = 0
         self.current_maintenance = self._next_maintenance()
@@ -180,47 +183,62 @@ class Maintenance():
 
 class MaintenancePlace():
     '''
-    Hangar in which a plane maintenance takes place.
+    Installation in which a plane maintenance takes place.
 
     Parameters
     ----------
     name : string
-        The name that identifies the hangar.
+        The name that identifies the installation.
 
     capacity : int
-        The maximum number of planes that can be in the hangar at the same time.
+        The maximum number of planes that can be in the installation at the same time.
     '''
 
     def __init__(self, name, capacity):
         self.name = name
         self.capacity = capacity
         self.free_places = capacity
+        self.planes = []
 
     def is_full(self):
         '''
-        Returns whether the hangar has no free places.
+        Returns whether the installation has no free places.
         '''
 
         return self.free_places <= 0
     
-    def add_plane(self):
+    def add_plane(self, plane):
         '''
-        Adds a plane to the hangar.
+        Adds a plane to the installation.
+
+        Parameters
+        ----------
+        plane : Plane
+            The plane to be added.
         '''
 
         if self.is_full():
             raise f"There are no free places in {self.name}"
             
         self.free_places -= 1
+        self.planes.append(plane)
     
-    def remove_plane(self):
+    def remove_plane(self, plane):
         '''
-        Removes a plane from the hangar.
+        Removes a plane from the installation.
+
+        Parameters
+        ----------
+        plane : Plane
+            The plane to be removed.
         '''
 
         if self.free_places >= self.capacity:
             raise f"There are no planes in {self.name}"
+        if plane not in self.planes:
+            raise f"Vehicle {plane.id} not found in installation {self.name}"
             
         self.free_places += 1
+        self.planes.remove(plane)
     
     
