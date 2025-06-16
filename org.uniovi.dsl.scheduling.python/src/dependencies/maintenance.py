@@ -236,7 +236,7 @@ class MaintenancePlace():
         if self.free_places >= self.capacity:
             raise f"There are no planes in {self.name}"
         if plane not in self.planes:
-            raise f"Plane {plane.id} not found in installation {self.name}"
+            raise f"Vehicle {plane.id} not found in installation {self.name}"
             
         self.free_places += 1
         self.planes.remove(plane)

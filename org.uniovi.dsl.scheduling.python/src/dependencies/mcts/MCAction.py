@@ -10,6 +10,9 @@ class MCAction:
         """
         Executes this Action from a given State
 
-        :param state: the State from which to execute this Action
+        Parameters
+        ----------
+        state : MCState
+            The State from which to execute this Action
         """
         state.last_action = self
