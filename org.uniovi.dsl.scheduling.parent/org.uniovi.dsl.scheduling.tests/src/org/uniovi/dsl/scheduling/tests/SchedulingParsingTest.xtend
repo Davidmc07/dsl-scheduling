@@ -15,16 +15,45 @@ import org.uniovi.dsl.scheduling.scheduling.Program
 @ExtendWith(InjectionExtension)
 @InjectWith(SchedulingInjectorProvider)
 class SchedulingParsingTest {
-	@Inject
-	ParseHelper<Program> parseHelper
-	
-	@Test
-	def void loadModel() {
-		val result = parseHelper.parse('''
-			Hello Xtext!
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-	}
+    @Inject
+    private ParseHelper<Program> parseHelper;
+    
+    @Inject
+    private ValidationTestHelper validationTestHelper;
+
+    @Test
+    public void testCompleteValidProgram() throws Exception {
+        String input = """
+            [Installations]
+            Installation plant1
+                Name: "Power Plant 1"
+                Capacity: 1000
+            
+            Installation plant2
+                Name: "Power Plant 2"
+                Capacity: 1500
+            
+            [Maintenances]
+            Maintenance maint1
+                Name: "Routine Check"
+                Interval: 24
+                Periods: 2
+                Priority: 1
+                Installations: plant1, plant2
+            
+            [Options]
+            Input: "schedule.csv"
+            Random_state: 42
+            """;
+        
+        Program result = parseHelper.parse(input);
+        
+        // Prueba: Parsing exitoso de programa completo con todas las secciones
+        // Resultado esperado: Objeto Program válido sin errores de parsing
+        assertNotNull(result);
+        validationTestHelper.assertNoErrors(result);
+        assertEquals(2, result.getInstallations().getInstallations().size());
+        assertEquals(1, result.getMaintenances().getMaints().size());
+        assertNotNull(result.getOptions());
+    }
 }
