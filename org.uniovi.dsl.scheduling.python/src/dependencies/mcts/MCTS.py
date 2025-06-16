@@ -6,15 +6,11 @@ import itertools
 
 class MCTS:
     """
-    Implements the MCTS algorithm, needs a State to start from and a neural network if the predict method is used
-
-    ! Esta clase tiene restos de la implementacion de packing (las opciones de expansion y simulacion). No se usan,
-    estan a modo de plantilla por si los utilizasemos mas adelante, marcados con un "# Not used"
+    Implements the MCTS algorithm, needs a State to start from
     """
-    def __init__(self, state, nn=None):
+    def __init__(self, state):
         self.root = state
         # self.init_root()
-        self.nn = nn
         self.selected = None
 
     def init_root(self):
@@ -125,24 +121,6 @@ class MCTS:
             action.execute(simulated)
             simulated.actions = []
         return simulated
-
-    def predict(self):  # Not used
-        """
-        Execute a value prediction from the selected State. This replaces the simulation phase when MCTS is called with
-        simulation = "predict"
-
-        :return: the predicted value
-        """
-        return self.selected.predict(self.nn)
-
-    def genetic(self):  # Not used
-        """
-        Execute a genetic algorithm from the selected State. This replaces the simulation phase when MCTS is called with
-        simulation = "genetic"
-
-        :return: the value found by the genetic algorithm
-        """
-        return self.selected.genetic()
 
     def backpropagate(self, reward, max_reward):
         """

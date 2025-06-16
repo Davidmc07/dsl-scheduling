@@ -10,6 +10,7 @@ import os, json
 
 def run_MCTS(
     maintenances,
+    installations,
     input,
     days_per_period=1, 
     number_of_periods=100, 
@@ -35,6 +36,7 @@ def run_MCTS(
         days_per_period,
         additional_hours,
         number_of_periods, 
+        installations,
         prob_before_schedule=prob_before_schedule,
         m=m, 
         min_reward_range=min_reward, 
@@ -45,8 +47,8 @@ def run_MCTS(
     try:
         ea.load_plane_data(input, maintenances)
     except DataFileException as e:
-        Logger.message(e)
-        exit()
+        Logger.message(str(e))
+        return
         
     Logger.open_section("Schedule generation")
 
@@ -59,7 +61,7 @@ def run_MCTS(
     while not root.stop():  # 0
         Logger.step(f'Scheduling period ({periods+1} / {number_of_periods})')
         parent = root
-        mcts = MCTS(state=parent, nn=None)
+        mcts = MCTS(state=parent)
         root = mcts.execute(max_iter=max_iter, expand_all=False, simulation='simulate', optimal=None)
         root.value_at_selection = root.value
         root.visits_at_selection = root.visits
