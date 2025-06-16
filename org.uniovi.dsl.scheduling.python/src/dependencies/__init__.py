@@ -47,8 +47,8 @@ def run_MCTS(
     try:
         ea.load_plane_data(input, maintenances)
     except DataFileException as e:
-        Logger.message(e)
-        exit()
+        Logger.message(str(e))
+        return
         
     Logger.open_section("Schedule generation")
 
@@ -61,7 +61,7 @@ def run_MCTS(
     while not root.stop():  # 0
         Logger.step(f'Scheduling period ({periods+1} / {number_of_periods})')
         parent = root
-        mcts = MCTS(state=parent, nn=None)
+        mcts = MCTS(state=parent)
         root = mcts.execute(max_iter=max_iter, expand_all=False, simulation='simulate', optimal=None)
         root.value_at_selection = root.value
         root.visits_at_selection = root.visits
