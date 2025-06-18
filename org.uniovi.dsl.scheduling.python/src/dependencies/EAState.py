@@ -128,8 +128,9 @@ class EAState(MCState):
     def _get_last_schedule(self, maintenance, plane_data, i):
         col_name = f'Last {maintenance.name}'
         if col_name in plane_data:
-            if float(plane_data[col_name]) >= 0:
-                return float(plane_data[col_name])
+            num = float(plane_data[col_name])
+            if num >= 0 or not math.isfinite(num):
+                return num
             else:
                 raise DataFileException(
                     f'Error processing line number "{i+1}" of the data file:\n'
@@ -139,23 +140,28 @@ class EAState(MCState):
     def _validate_input_row(self, plane_data, i):
         base_exception_msg = f'Error processing line number "{i+1}" of the data file:\n  '
         total_hours = 0
+        maint_duration = 0
+        days_maint = 0
         try:
             hours_day = float(plane_data['Usage per day'])
-            maint_duration = float(plane_data['Maint duration'])
-            days_maint = float(plane_data['Count days in maint'])
             if 'Total usage' in plane_data:
                 total_hours = float(plane_data['Total usage']) 
+            if ('Active' in plane_data) and (not plane_data['Active']):
+                if 'Maint duration' in plane_data:
+                    maint_duration = float(plane_data['Maint duration'])
+                if 'Count days in maint' in plane_data:
+                    days_maint = float(plane_data['Count days in maint'])
         except:
             raise DataFileException(base_exception_msg + f'Invalid numeric value')
         
-        if hours_day < 0:
-            raise DataFileException(base_exception_msg + f'Usage per day can not be negative')
-        if maint_duration < 0:
-            raise DataFileException(base_exception_msg + f'Current maintenance duration can not be negative')
-        if days_maint < 0:
-            raise DataFileException(base_exception_msg + f'Number of days under maintenance can not be negative')
-        if total_hours < 0:
-            raise DataFileException(base_exception_msg + f'Total usage can not be negative')
+        if not math.isfinite(hours_day) or hours_day < 0:
+            raise DataFileException(base_exception_msg + f'Usage per day must be a non negative number')
+        if not math.isfinite(maint_duration) or maint_duration < 0:
+            raise DataFileException(base_exception_msg + f'Current maintenance duration must be a non negative number')
+        if not math.isfinite(days_maint) or days_maint < 0:
+            raise DataFileException(base_exception_msg + f'Number of days under maintenance must be a non negative number')
+        if not math.isfinite(total_hours) or total_hours < 0:
+            raise DataFileException(base_exception_msg + f'Total usage must be a non negative number')
 
 
     def get_total_hours(self):
