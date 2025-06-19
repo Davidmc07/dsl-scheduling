@@ -82,6 +82,16 @@ public class SchedulingValidator extends AbstractSchedulingValidator {
 	}
 	
 	@Check
+	public void checkMaintenanceIncludingItself(MaintDef maint) {
+		if (maint.getIncludes() == null) return;
+		
+		List<String> includes = Arrays.asList(maint.getIncludes().split("\\s*,\\s*"));
+		if (includes.contains(maint.getId())) {
+			error("A maintenance can not include itself", SchedulingPackage.Literals.MAINT_DEF__INCLUDES);
+		}
+	}
+	
+	@Check
 	public void checkMaintenanceInstallations(MaintDef maint) {
 		Program program = (Program) maint.eContainer().eContainer();
 		Installations installations = program.getInstallations();
