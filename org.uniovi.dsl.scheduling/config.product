@@ -3,6 +3,7 @@
 
 <product name="org.uniovi.dsl.scheduling.product" uid="config" id="org.uniovi.dsl.scheduling.product" application="org.uniovi.dsl.scheduling.rcp.application" version="1.0.0.qualifier" useFeatures="false" includeLaunchers="true" autoIncludeRequirements="true">
 
+
    <configIni use="default">
    </configIni>
 
@@ -21,7 +22,7 @@
       startupForegroundColor="FFFFFF" />
    <launcher name="SchedulingIDE">
       <win useIco="true">
-         <ico path="/org.uniovi.dsl.scheduling.rcp/icons/ide256.ico"/>
+         <ico path="/org.uniovi.dsl.scheduling.rcp/icons/icons.ico"/>
          <bmp
             winSmallHigh="/org.uniovi.dsl.scheduling.rcp/icons/ide16.bmp"
             winSmallLow="/org.uniovi.dsl.scheduling.rcp/icons/ide16_8bit.bmp"
@@ -29,13 +30,15 @@
             winMediumLow="/org.uniovi.dsl.scheduling.rcp/icons/ide32_8bit.bmp"
             winLargeHigh="/org.uniovi.dsl.scheduling.rcp/icons/ide48.bmp"
             winLargeLow="/org.uniovi.dsl.scheduling.rcp/icons/ide48_8bit.bmp"
-            winExtraLargeHigh="/org.uniovi.dsl.scheduling.rcp/icons/ide256.bmp"/>
+            winExtraLargeHigh="/org.uniovi.dsl.scheduling.rcp/icons/test.bmp"/>
       </win>
    </launcher>
+
 
    <vm>
       <windows include="true">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17</windows>
    </vm>
+
 
    <plugins>
       <plugin id="bcpg"/>
