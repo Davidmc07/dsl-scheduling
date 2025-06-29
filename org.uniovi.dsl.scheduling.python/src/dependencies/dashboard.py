@@ -108,7 +108,17 @@ def make_gantt_chart(df):
     height = 250 + len(set(df['Task'])) * 30
     fig.update_yaxes(categoryorder='total ascending', title_text='Vehicles')
     fig.update_xaxes(title_text='Time')
-    fig.update_layout(title='Fleet Maintenance Schedule', height=height)
+    fig.update_layout(
+        title='Fleet Maintenance Schedule', 
+        height=height,
+        xaxis=dict(
+            rangeselector=dict(
+                buttons=[dict(step="all")],
+                x=0, xanchor='left',
+                y=1, yanchor='top'
+            )
+        )
+    )
 
     return fig
 
