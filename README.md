@@ -19,15 +19,15 @@ This work presents a novel Domain-Specific Language (DSL) for scheduling mainten
 
 To schedule your fleet's maintenances, the DSL needs to know the ID associated with each vehicle and their estimated usage per day. This data is passed as a CSV file in the `Input` parameter, under the `[Options]` section. Additional attributes can be used to specify the current state of the fleet.
 
-| Attribute                 | Type     | Description                                                                                                                                  | Optional |
-|---------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| `ID`                      | `string` | Unique identifier for the vehicle                                                                                                            | No       |
-| `Usage per day`           | `float`  | Estimated usage per day                                                                                                                      | No       |
-| `Active`                  | `boolean`| Whether the vehicle is active or under maintenance                                                                                           | Yes      |
-| `Maint duration`          | `int`    | If not active, the duration of the current maintenance                                                                                       | Yes      |
-| `Count days in maint`     | `int`    | If not active, the number of elapsed days under maintenance                                                                                  | Yes      |
-| `Total usage`             | `float`  | Total usage, including the amount since the last maintenance and from <br>previous maintenance cycles                                        | Yes      |
-| `Last [maint. name]`      | `float`  | The total usage at which the last maintenance of each type was performed. <br>The maintenance name must match the one defined on the program | Yes      |
+| Attribute                 | Type     | Description                                                                                                                              | Optional |
+|---------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------|----------|
+| `ID`                      | `string` | Unique identifier for the vehicle                                                                                                        | No       |
+| `Usage per day`           | `float`  | Estimated usage per day                                                                                                                  | No       |
+| `Active`                  | `boolean`| Whether the vehicle is active or under maintenance                                                                                       | Yes      |
+| `Maint duration`          | `int`    | If not active, the duration of the current maintenance                                                                                   | Yes      |
+| `Count days in maint`     | `int`    | If not active, the number of elapsed days under maintenance                                                                              | Yes      |
+| `Total usage`             | `float`  | Total usage, including the amount since the last maintenance and from previous maintenance cycles                                        | Yes      |
+| `Last [maint. name]`      | `float`  | The total usage at which the last maintenance of each type was performed. The maintenance name must match the one defined on the program | Yes      |
 
 ## Output
 
