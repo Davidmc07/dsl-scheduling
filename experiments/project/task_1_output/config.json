@@ -1,0 +1,10 @@
+{
+    "random_state": 0,
+    "days_per_period": 1,
+    "number_of_periods": 100,
+    "max_iter": 5,
+    "min_reward": 5000,
+    "max_reward": 9000,
+    "prob_before_schedule": 1,
+    "m": 5
+}

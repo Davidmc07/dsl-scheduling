@@ -1,0 +1,17 @@
+[Options]
+
+Input: "data/data_2.csv"
+
+[Installations]
+
+Installation i1
+	Name: "Installation 1"
+	Capacity: 10
+	
+[Maintenances]
+
+Maintenance m1
+	Name: "M1"
+	Interval: 20
+	Periods: 5
+	Installations: i1

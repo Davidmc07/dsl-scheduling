@@ -1,0 +1,1202 @@
+{
+    "2026-03-26": {
+        "V1": {
+            "Total usage": 0,
+            "Current usage": 0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 0,
+            "Current usage": 0,
+            "Active": true
+        }
+    },
+    "2026-03-27": {
+        "V1": {
+            "Total usage": 5.0,
+            "Current usage": 5.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 5.0,
+            "Current usage": 5.0,
+            "Active": true
+        }
+    },
+    "2026-03-28": {
+        "V1": {
+            "Total usage": 10.0,
+            "Current usage": 10.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 10.0,
+            "Current usage": 10.0,
+            "Active": true
+        }
+    },
+    "2026-03-29": {
+        "V1": {
+            "Total usage": 15.0,
+            "Current usage": 15.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 15.0,
+            "Current usage": 15.0,
+            "Active": true
+        }
+    },
+    "2026-03-30": {
+        "V1": {
+            "Total usage": 20.0,
+            "Current usage": 20.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 20.0,
+            "Current usage": 20.0,
+            "Active": true
+        }
+    },
+    "2026-03-31": {
+        "V1": {
+            "Total usage": 25.0,
+            "Current usage": 25.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 25.0,
+            "Current usage": 25.0,
+            "Active": true
+        }
+    },
+    "2026-04-01": {
+        "V1": {
+            "Total usage": 30.0,
+            "Current usage": 30.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 30.0,
+            "Current usage": 30.0,
+            "Active": true
+        }
+    },
+    "2026-04-02": {
+        "V1": {
+            "Total usage": 35.0,
+            "Current usage": 35.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 35.0,
+            "Current usage": 35.0,
+            "Active": true
+        }
+    },
+    "2026-04-03": {
+        "V1": {
+            "Total usage": 40.0,
+            "Current usage": 40.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 40.0,
+            "Current usage": 40.0,
+            "Active": true
+        }
+    },
+    "2026-04-04": {
+        "V1": {
+            "Total usage": 45.0,
+            "Current usage": 45.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 45.0,
+            "Current usage": 45.0,
+            "Active": true
+        }
+    },
+    "2026-04-05": {
+        "V1": {
+            "Total usage": 50.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 50.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-04-06": {
+        "V1": {
+            "Total usage": 50.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 50.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-04-07": {
+        "V1": {
+            "Total usage": 50.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 50.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-04-08": {
+        "V1": {
+            "Total usage": 50.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 50.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-04-09": {
+        "V1": {
+            "Total usage": 50.0,
+            "Current usage": 0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 50.0,
+            "Current usage": 0,
+            "Active": true
+        }
+    },
+    "2026-04-10": {
+        "V1": {
+            "Total usage": 55.0,
+            "Current usage": 5.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 55.0,
+            "Current usage": 5.0,
+            "Active": true
+        }
+    },
+    "2026-04-11": {
+        "V1": {
+            "Total usage": 60.0,
+            "Current usage": 10.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 60.0,
+            "Current usage": 10.0,
+            "Active": true
+        }
+    },
+    "2026-04-12": {
+        "V1": {
+            "Total usage": 65.0,
+            "Current usage": 15.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 65.0,
+            "Current usage": 15.0,
+            "Active": true
+        }
+    },
+    "2026-04-13": {
+        "V1": {
+            "Total usage": 70.0,
+            "Current usage": 20.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 70.0,
+            "Current usage": 20.0,
+            "Active": true
+        }
+    },
+    "2026-04-14": {
+        "V1": {
+            "Total usage": 75.0,
+            "Current usage": 25.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 75.0,
+            "Current usage": 25.0,
+            "Active": true
+        }
+    },
+    "2026-04-15": {
+        "V1": {
+            "Total usage": 80.0,
+            "Current usage": 30.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 80.0,
+            "Current usage": 30.0,
+            "Active": true
+        }
+    },
+    "2026-04-16": {
+        "V1": {
+            "Total usage": 85.0,
+            "Current usage": 35.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 85.0,
+            "Current usage": 35.0,
+            "Active": true
+        }
+    },
+    "2026-04-17": {
+        "V1": {
+            "Total usage": 90.0,
+            "Current usage": 40.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 90.0,
+            "Current usage": 40.0,
+            "Active": true
+        }
+    },
+    "2026-04-18": {
+        "V1": {
+            "Total usage": 95.0,
+            "Current usage": 45.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 95.0,
+            "Current usage": 45.0,
+            "Active": true
+        }
+    },
+    "2026-04-19": {
+        "V1": {
+            "Total usage": 100.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 100.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-04-20": {
+        "V1": {
+            "Total usage": 100.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 100.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-04-21": {
+        "V1": {
+            "Total usage": 100.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 100.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-04-22": {
+        "V1": {
+            "Total usage": 100.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 100.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-04-23": {
+        "V1": {
+            "Total usage": 100.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 100.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-04-24": {
+        "V1": {
+            "Total usage": 100.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 100.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-04-25": {
+        "V1": {
+            "Total usage": 100.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 100.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-04-26": {
+        "V1": {
+            "Total usage": 100.0,
+            "Current usage": 0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 100.0,
+            "Current usage": 0,
+            "Active": true
+        }
+    },
+    "2026-04-27": {
+        "V1": {
+            "Total usage": 105.0,
+            "Current usage": 5.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 105.0,
+            "Current usage": 5.0,
+            "Active": true
+        }
+    },
+    "2026-04-28": {
+        "V1": {
+            "Total usage": 110.0,
+            "Current usage": 10.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 110.0,
+            "Current usage": 10.0,
+            "Active": true
+        }
+    },
+    "2026-04-29": {
+        "V1": {
+            "Total usage": 115.0,
+            "Current usage": 15.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 115.0,
+            "Current usage": 15.0,
+            "Active": true
+        }
+    },
+    "2026-04-30": {
+        "V1": {
+            "Total usage": 120.0,
+            "Current usage": 20.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 120.0,
+            "Current usage": 20.0,
+            "Active": true
+        }
+    },
+    "2026-05-01": {
+        "V1": {
+            "Total usage": 125.0,
+            "Current usage": 25.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 125.0,
+            "Current usage": 25.0,
+            "Active": true
+        }
+    },
+    "2026-05-02": {
+        "V1": {
+            "Total usage": 130.0,
+            "Current usage": 30.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 130.0,
+            "Current usage": 30.0,
+            "Active": true
+        }
+    },
+    "2026-05-03": {
+        "V1": {
+            "Total usage": 135.0,
+            "Current usage": 35.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 135.0,
+            "Current usage": 35.0,
+            "Active": true
+        }
+    },
+    "2026-05-04": {
+        "V1": {
+            "Total usage": 140.0,
+            "Current usage": 40.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 140.0,
+            "Current usage": 40.0,
+            "Active": true
+        }
+    },
+    "2026-05-05": {
+        "V1": {
+            "Total usage": 145.0,
+            "Current usage": 45.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 145.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-05-06": {
+        "V1": {
+            "Total usage": 150.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 145.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-05-07": {
+        "V1": {
+            "Total usage": 150.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 145.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-05-08": {
+        "V1": {
+            "Total usage": 150.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 145.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-05-09": {
+        "V1": {
+            "Total usage": 150.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 145.0,
+            "Current usage": 0,
+            "Active": true
+        }
+    },
+    "2026-05-10": {
+        "V1": {
+            "Total usage": 150.0,
+            "Current usage": 0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 150.0,
+            "Current usage": 5.0,
+            "Active": true
+        }
+    },
+    "2026-05-11": {
+        "V1": {
+            "Total usage": 155.0,
+            "Current usage": 5.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 155.0,
+            "Current usage": 10.0,
+            "Active": true
+        }
+    },
+    "2026-05-12": {
+        "V1": {
+            "Total usage": 160.0,
+            "Current usage": 10.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 160.0,
+            "Current usage": 15.0,
+            "Active": true
+        }
+    },
+    "2026-05-13": {
+        "V1": {
+            "Total usage": 165.0,
+            "Current usage": 15.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 165.0,
+            "Current usage": 20.0,
+            "Active": true
+        }
+    },
+    "2026-05-14": {
+        "V1": {
+            "Total usage": 170.0,
+            "Current usage": 20.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 170.0,
+            "Current usage": 25.0,
+            "Active": true
+        }
+    },
+    "2026-05-15": {
+        "V1": {
+            "Total usage": 175.0,
+            "Current usage": 25.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 175.0,
+            "Current usage": 30.0,
+            "Active": true
+        }
+    },
+    "2026-05-16": {
+        "V1": {
+            "Total usage": 180.0,
+            "Current usage": 30.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 180.0,
+            "Current usage": 35.0,
+            "Active": true
+        }
+    },
+    "2026-05-17": {
+        "V1": {
+            "Total usage": 185.0,
+            "Current usage": 35.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 185.0,
+            "Current usage": 40.0,
+            "Active": true
+        }
+    },
+    "2026-05-18": {
+        "V1": {
+            "Total usage": 190.0,
+            "Current usage": 40.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 190.0,
+            "Current usage": 45.0,
+            "Active": true
+        }
+    },
+    "2026-05-19": {
+        "V1": {
+            "Total usage": 195.0,
+            "Current usage": 45.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 195.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-05-20": {
+        "V1": {
+            "Total usage": 200.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 195.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-05-21": {
+        "V1": {
+            "Total usage": 200.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 195.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-05-22": {
+        "V1": {
+            "Total usage": 200.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 195.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-05-23": {
+        "V1": {
+            "Total usage": 200.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 195.0,
+            "Current usage": 0,
+            "Active": true
+        }
+    },
+    "2026-05-24": {
+        "V1": {
+            "Total usage": 200.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 200.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-05-25": {
+        "V1": {
+            "Total usage": 200.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 200.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-05-26": {
+        "V1": {
+            "Total usage": 200.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 200.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-05-27": {
+        "V1": {
+            "Total usage": 200.0,
+            "Current usage": 0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 200.0,
+            "Current usage": 0,
+            "Active": true
+        }
+    },
+    "2026-05-28": {
+        "V1": {
+            "Total usage": 205.0,
+            "Current usage": 5.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 205.0,
+            "Current usage": 5.0,
+            "Active": true
+        }
+    },
+    "2026-05-29": {
+        "V1": {
+            "Total usage": 210.0,
+            "Current usage": 10.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 210.0,
+            "Current usage": 10.0,
+            "Active": true
+        }
+    },
+    "2026-05-30": {
+        "V1": {
+            "Total usage": 215.0,
+            "Current usage": 15.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 215.0,
+            "Current usage": 15.0,
+            "Active": true
+        }
+    },
+    "2026-05-31": {
+        "V1": {
+            "Total usage": 220.0,
+            "Current usage": 20.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 220.0,
+            "Current usage": 20.0,
+            "Active": true
+        }
+    },
+    "2026-06-01": {
+        "V1": {
+            "Total usage": 225.0,
+            "Current usage": 25.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 225.0,
+            "Current usage": 25.0,
+            "Active": true
+        }
+    },
+    "2026-06-02": {
+        "V1": {
+            "Total usage": 230.0,
+            "Current usage": 30.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 230.0,
+            "Current usage": 30.0,
+            "Active": true
+        }
+    },
+    "2026-06-03": {
+        "V1": {
+            "Total usage": 235.0,
+            "Current usage": 35.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 235.0,
+            "Current usage": 35.0,
+            "Active": true
+        }
+    },
+    "2026-06-04": {
+        "V1": {
+            "Total usage": 240.0,
+            "Current usage": 40.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 240.0,
+            "Current usage": 40.0,
+            "Active": true
+        }
+    },
+    "2026-06-05": {
+        "V1": {
+            "Total usage": 245.0,
+            "Current usage": 45.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 245.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-06-06": {
+        "V1": {
+            "Total usage": 250.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 245.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-06-07": {
+        "V1": {
+            "Total usage": 250.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 245.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-06-08": {
+        "V1": {
+            "Total usage": 250.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 245.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-06-09": {
+        "V1": {
+            "Total usage": 250.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 245.0,
+            "Current usage": 0,
+            "Active": true
+        }
+    },
+    "2026-06-10": {
+        "V1": {
+            "Total usage": 250.0,
+            "Current usage": 0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 250.0,
+            "Current usage": 5.0,
+            "Active": true
+        }
+    },
+    "2026-06-11": {
+        "V1": {
+            "Total usage": 255.0,
+            "Current usage": 5.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 255.0,
+            "Current usage": 10.0,
+            "Active": true
+        }
+    },
+    "2026-06-12": {
+        "V1": {
+            "Total usage": 260.0,
+            "Current usage": 10.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 260.0,
+            "Current usage": 15.0,
+            "Active": true
+        }
+    },
+    "2026-06-13": {
+        "V1": {
+            "Total usage": 265.0,
+            "Current usage": 15.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 265.0,
+            "Current usage": 20.0,
+            "Active": true
+        }
+    },
+    "2026-06-14": {
+        "V1": {
+            "Total usage": 270.0,
+            "Current usage": 20.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 270.0,
+            "Current usage": 25.0,
+            "Active": true
+        }
+    },
+    "2026-06-15": {
+        "V1": {
+            "Total usage": 275.0,
+            "Current usage": 25.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 275.0,
+            "Current usage": 30.0,
+            "Active": true
+        }
+    },
+    "2026-06-16": {
+        "V1": {
+            "Total usage": 280.0,
+            "Current usage": 30.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 280.0,
+            "Current usage": 35.0,
+            "Active": true
+        }
+    },
+    "2026-06-17": {
+        "V1": {
+            "Total usage": 285.0,
+            "Current usage": 35.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 285.0,
+            "Current usage": 40.0,
+            "Active": true
+        }
+    },
+    "2026-06-18": {
+        "V1": {
+            "Total usage": 290.0,
+            "Current usage": 40.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 290.0,
+            "Current usage": 45.0,
+            "Active": true
+        }
+    },
+    "2026-06-19": {
+        "V1": {
+            "Total usage": 295.0,
+            "Current usage": 45.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 295.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-06-20": {
+        "V1": {
+            "Total usage": 300.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 295.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-06-21": {
+        "V1": {
+            "Total usage": 300.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 295.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-06-22": {
+        "V1": {
+            "Total usage": 300.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 295.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-06-23": {
+        "V1": {
+            "Total usage": 300.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 295.0,
+            "Current usage": 0,
+            "Active": true
+        }
+    },
+    "2026-06-24": {
+        "V1": {
+            "Total usage": 300.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 300.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-06-25": {
+        "V1": {
+            "Total usage": 300.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 300.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-06-26": {
+        "V1": {
+            "Total usage": 300.0,
+            "Current usage": 0,
+            "Active": false
+        },
+        "v2": {
+            "Total usage": 300.0,
+            "Current usage": 0,
+            "Active": false
+        }
+    },
+    "2026-06-27": {
+        "V1": {
+            "Total usage": 300.0,
+            "Current usage": 0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 300.0,
+            "Current usage": 0,
+            "Active": true
+        }
+    },
+    "2026-06-28": {
+        "V1": {
+            "Total usage": 305.0,
+            "Current usage": 5.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 305.0,
+            "Current usage": 5.0,
+            "Active": true
+        }
+    },
+    "2026-06-29": {
+        "V1": {
+            "Total usage": 310.0,
+            "Current usage": 10.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 310.0,
+            "Current usage": 10.0,
+            "Active": true
+        }
+    },
+    "2026-06-30": {
+        "V1": {
+            "Total usage": 315.0,
+            "Current usage": 15.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 315.0,
+            "Current usage": 15.0,
+            "Active": true
+        }
+    },
+    "2026-07-01": {
+        "V1": {
+            "Total usage": 320.0,
+            "Current usage": 20.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 320.0,
+            "Current usage": 20.0,
+            "Active": true
+        }
+    },
+    "2026-07-02": {
+        "V1": {
+            "Total usage": 325.0,
+            "Current usage": 25.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 325.0,
+            "Current usage": 25.0,
+            "Active": true
+        }
+    },
+    "2026-07-03": {
+        "V1": {
+            "Total usage": 330.0,
+            "Current usage": 30.0,
+            "Active": true
+        },
+        "v2": {
+            "Total usage": 330.0,
+            "Current usage": 30.0,
+            "Active": true
+        }
+    }
+}
