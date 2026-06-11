@@ -37,9 +37,11 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.resource.IResourceDescriptions;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.resource.IResourceSetProvider;
+import org.eclipse.xtext.util.IResourceScopeCache;
 import org.eclipse.xtext.validation.CheckMode;
 import org.eclipse.xtext.validation.IResourceValidator;
 import org.uniovi.dsl.scheduling.generator.CodeExecutionManager;
+import org.uniovi.dsl.scheduling.ui.theme.ThemeUtils;
 
 import com.google.inject.Provider;
 
@@ -58,6 +60,9 @@ public class GenerationHandler extends AbstractHandler implements IHandler {
 
     @Inject
     IResourceSetProvider resourceSetProvider;
+    
+    @Inject
+    private IResourceScopeCache cache;
     
 
     @Override
@@ -125,6 +130,8 @@ public class GenerationHandler extends AbstractHandler implements IHandler {
 		String workspacePath = workspace.getRoot().getLocation().toFile().getAbsolutePath();
 		CodeExecutionManager.setProjectPath(workspacePath + project.getFullPath().toString());
 		ResourcesPlugin.getWorkspace();
+		
+		cache.get("IS_DARK_THEME", r, () -> ThemeUtils.isDarkThemeEnabled());
 		
 		generator.doGenerate(r, fsa, ctx);
 	

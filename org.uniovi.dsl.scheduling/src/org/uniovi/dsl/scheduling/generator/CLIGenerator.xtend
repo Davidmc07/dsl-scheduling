@@ -1,40 +1,46 @@
 package org.uniovi.dsl.scheduling.generator
 
+import com.google.inject.Inject
+import java.util.ArrayList
+import java.util.List
 import org.eclipse.core.resources.IProject
 import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
+import org.eclipse.xtext.util.IResourceScopeCache
 import org.eclipse.xtext.util.PolymorphicDispatcher
 import org.uniovi.dsl.scheduling.scheduling.Config
 import org.uniovi.dsl.scheduling.scheduling.InstallationDef
 import org.uniovi.dsl.scheduling.scheduling.Installations
 import org.uniovi.dsl.scheduling.scheduling.Maintenances
 import org.uniovi.dsl.scheduling.scheduling.Program
-import java.util.List
-import java.util.ArrayList
 
 class CLIGenerator { 
     PolymorphicDispatcher<List<String>> dispatcher;
     Resource resource;
     IFileSystemAccess fsa;
     List<String> args;
+    IResourceScopeCache cache;
 	
-    new (Resource resource, IFileSystemAccess fsa) {
+    new (Resource resource, IFileSystemAccess fsa, IResourceScopeCache cache) {
 		this.resource = resource;
 		this.fsa = fsa;
 		this.dispatcher = PolymorphicDispatcher.createForSingleTarget("compile", this);
 		this.args = new ArrayList<String>();
+		this.cache = cache;
     }
 	
     def compile() {
     	args.clear();
 		args.add("--dsl-filename");
 		args.add(getFilename(resource));
+		if (cache.get("IS_DARK_THEME", resource, [ Boolean.FALSE ])) {
+			args.add("--dark-mode");
+		}
 
 		for (i: resource.allContents.toIterable.filter(typeof(Program))) {
 			dispatcher.invoke(i);
 		}
-		
 		//fsa.generateFile("output.txt", sb.toString);
 		return args;
 	}
