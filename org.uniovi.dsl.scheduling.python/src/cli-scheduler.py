@@ -53,6 +53,7 @@ def date_type(date_str: str) -> datetime:
     
 parser = argparse.ArgumentParser()
 parser.add_argument('--path', required=False, type=str, default=None)
+parser.add_argument('--dark-mode', action="store_true")
 
 parser.add_argument('--dsl-filename', required=False, type=str, default="Unnamed file")
 parser.add_argument('--installations', nargs='+', action=ParseInstallationAction, required=True)
@@ -72,6 +73,7 @@ parser.add_argument('--start-date', required=False, type=date_type, default=date
 
 args = parser.parse_args()
 
+Logger.dark_mode = args.dark_mode
 Logger.new_file(args.dsl_filename)
 
 run_MCTS(
