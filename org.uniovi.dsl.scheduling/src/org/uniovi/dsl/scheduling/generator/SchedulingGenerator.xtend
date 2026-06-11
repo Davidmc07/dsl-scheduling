@@ -3,10 +3,12 @@
  */
 package org.uniovi.dsl.scheduling.generator
 
+import com.google.inject.Inject
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.eclipse.xtext.util.IResourceScopeCache
 
 /**
  * Generates code from your model files on save.
@@ -14,9 +16,11 @@ import org.eclipse.xtext.generator.IGeneratorContext
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class SchedulingGenerator extends AbstractGenerator {
+	@Inject
+    IResourceScopeCache cache;
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		var generator = new CLIGenerator(resource, fsa);
+		var generator = new CLIGenerator(resource, fsa, cache);
 		var args = generator.compile;
 		CodeExecutionManager.execute(args);
 	}

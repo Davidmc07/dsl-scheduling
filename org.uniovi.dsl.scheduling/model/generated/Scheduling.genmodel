@@ -7,40 +7,37 @@
   <genPackages prefix="Scheduling" basePackage="org.uniovi.dsl.scheduling" disposableProviderFactory="true"
       fileExtensions="sched" ecorePackage="Scheduling.ecore#/">
     <genClasses ecoreClass="Scheduling.ecore#//Program">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Scheduling.ecore#//Program/configuration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Scheduling.ecore#//Program/installations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Scheduling.ecore#//Program/maintenances"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Scheduling.ecore#//Program/options"/>
     </genClasses>
     <genClasses ecoreClass="Scheduling.ecore#//Installations">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Scheduling.ecore#//Installations/installations"/>
     </genClasses>
-    <genClasses ecoreClass="Scheduling.ecore#//InstallationDef">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//InstallationDef/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//InstallationDef/installationName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//InstallationDef/capacity"/>
+    <genClasses ecoreClass="Scheduling.ecore#//Installation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//Installation/installationName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//Installation/capacity"/>
     </genClasses>
     <genClasses ecoreClass="Scheduling.ecore#//Maintenances">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Scheduling.ecore#//Maintenances/maints"/>
     </genClasses>
-    <genClasses ecoreClass="Scheduling.ecore#//MaintDef">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//MaintDef/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//MaintDef/maintName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//MaintDef/hours"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//MaintDef/duration"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//MaintDef/priority"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//MaintDef/includes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//MaintDef/installations"/>
+    <genClasses ecoreClass="Scheduling.ecore#//MaintenanceType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//MaintenanceType/maintName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//MaintenanceType/hours"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//MaintenanceType/duration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//MaintenanceType/priority"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Scheduling.ecore#//MaintenanceType/includes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Scheduling.ecore#//MaintenanceType/is_performed_in"/>
     </genClasses>
-    <genClasses ecoreClass="Scheduling.ecore#//Config">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//Config/input"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//Config/randomState"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//Config/probBeforeScheduling"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//Config/rateOfChange"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//Config/daysPerPeriod"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//Config/numberOfPeriods"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//Config/extraHours"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//Config/maxIters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Scheduling.ecore#//Config/startDate"/>
+    <genClasses ecoreClass="Scheduling.ecore#//Configuration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//Configuration/input"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//Configuration/randomState"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//Configuration/probBeforeScheduling"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//Configuration/rateOfChange"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//Configuration/daysPerPeriod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//Configuration/numberOfPeriods"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//Configuration/extraHours"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheduling.ecore#//Configuration/maxIters"/>
     </genClasses>
     <genClasses ecoreClass="Scheduling.ecore#//Date"/>
     <genClasses ecoreClass="Scheduling.ecore#//DMYDate">

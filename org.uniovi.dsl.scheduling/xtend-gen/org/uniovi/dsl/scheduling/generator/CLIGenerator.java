@@ -2,6 +2,7 @@ package org.uniovi.dsl.scheduling.generator;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
+import com.google.inject.Provider;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.core.resources.IProject;
@@ -11,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
+import org.eclipse.xtext.util.IResourceScopeCache;
 import org.eclipse.xtext.util.PolymorphicDispatcher;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.uniovi.dsl.scheduling.scheduling.Config;
@@ -31,18 +33,28 @@ public class CLIGenerator {
 
   private List<String> args;
 
-  public CLIGenerator(final Resource resource, final IFileSystemAccess fsa) {
+  private IResourceScopeCache cache;
+
+  public CLIGenerator(final Resource resource, final IFileSystemAccess fsa, final IResourceScopeCache cache) {
     this.resource = resource;
     this.fsa = fsa;
     this.dispatcher = PolymorphicDispatcher.<List<String>>createForSingleTarget("compile", this);
     ArrayList<String> _arrayList = new ArrayList<String>();
     this.args = _arrayList;
+    this.cache = cache;
   }
 
   public List<String> compile() {
     this.args.clear();
     this.args.add("--dsl-filename");
     this.args.add(this.getFilename(this.resource));
+    final Provider<Boolean> _function = () -> {
+      return Boolean.FALSE;
+    };
+    Boolean _get = this.cache.<Boolean>get("IS_DARK_THEME", this.resource, _function);
+    if ((_get).booleanValue()) {
+      this.args.add("--dark-mode");
+    }
     Iterable<Program> _filter = Iterables.<Program>filter(IteratorExtensions.<EObject>toIterable(this.resource.getAllContents()), Program.class);
     for (final Program i : _filter) {
       this.dispatcher.invoke(i);

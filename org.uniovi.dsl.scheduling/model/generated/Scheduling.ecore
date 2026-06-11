@@ -3,36 +3,36 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="scheduling" nsURI="http://www.uniovi.org/dsl/scheduling/Scheduling"
     nsPrefix="scheduling">
   <eClassifiers xsi:type="ecore:EClass" name="Program">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="installations" eType="#//Installations"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="maintenances" eType="#//Maintenances"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="options" eType="#//Config"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configuration" lowerBound="1"
+        eType="#//Configuration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="installations" lowerBound="1"
+        upperBound="-1" eType="#//Installation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="maintenances" lowerBound="1"
+        upperBound="-1" eType="#//MaintenanceType" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Installations">
     <eStructuralFeatures xsi:type="ecore:EReference" name="installations" upperBound="-1"
-        eType="#//InstallationDef" containment="true"/>
+        eType="#//Installation" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InstallationDef">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Installation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="installationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Maintenances">
     <eStructuralFeatures xsi:type="ecore:EReference" name="maints" upperBound="-1"
-        eType="#//MaintDef" containment="true"/>
+        eType="#//MaintenanceType" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MaintDef">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MaintenanceType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maintName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="includes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="installations" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="includes" upperBound="-1"
+        eType="#//MaintenanceType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="is_performed_in" lowerBound="1"
+        upperBound="-1" eType="#//Installation" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Config">
+  <eClassifiers xsi:type="ecore:EClass" name="Configuration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="input" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="randomState" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="probBeforeScheduling" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -41,8 +41,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfPeriods" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="extraHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxIters" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="startDate" eType="#//DMYDate"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Date"/>
   <eClassifiers xsi:type="ecore:EClass" name="DMYDate" eSuperTypes="#//Date">
