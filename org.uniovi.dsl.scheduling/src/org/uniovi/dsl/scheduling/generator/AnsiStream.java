@@ -16,7 +16,8 @@ import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
 
 public class AnsiStream implements Flushable, Closeable {
-    private Pattern ansiPattern = Pattern.compile("(?=(\033\\[\\d+m))");
+    private Pattern ansiPattern = Pattern.compile("(?=(\033\\[[0-9;]*m))");
+    private Pattern rgbParser = Pattern.compile("\033\\[38;2;(\\d+);(\\d+);(\\d+)m");
     private HashMap<String, MessageConsoleStream> streamPool = new HashMap<>();
     private MessageConsoleStream currentStream;
 
@@ -31,23 +32,16 @@ public class AnsiStream implements Flushable, Closeable {
     }
 
     private void initStreamPool(MessageConsole console) {
-	addStream("default", console, null); // Default
-	addStream("\033[30m", console, new Color(0, 0, 0)); // Black
-	addStream("\033[31m", console, new Color(255, 0, 0)); // Red
-	addStream("\033[32m", console, new Color(0, 255, 0)); // Green
-	addStream("\033[33m", console, new Color(255, 255, 0)); // Yellow
-	addStream("\033[34m", console, new Color(0, 0, 255)); // Blue
-	addStream("\033[35m", console, new Color(255, 0, 255)); // Magenta
-	addStream("\033[36m", console, new Color(0, 255, 255)); // Cyan
-	addStream("\033[37m", console, new Color(255, 255, 255));// White
+		addStream("default", console, null); // Default
+		streamPool.put("\033[0m", streamPool.get("default"));
     }
 
     private void addStream(String name, MessageConsole console, Color color) {
-	MessageConsoleStream stream = console.newMessageStream();
-	stream.setColor(color);
-	stream.setEncoding("UTF-8");
-	stream.setFontStyle(10);
-	streamPool.put(name, stream);
+		MessageConsoleStream stream = console.newMessageStream();
+		stream.setColor(color);
+		stream.setEncoding("UTF-8");
+		stream.setFontStyle(10);
+		streamPool.put(name, stream);
     }
 
     public void print(String message) {
@@ -57,56 +51,77 @@ public class AnsiStream implements Flushable, Closeable {
 	    Matcher matcher = ansiPattern.matcher(parts[i]);
 
 	    if (matcher.find()) {
-		String escapeSequence = matcher.group(1);
-		String text = parts[i].substring(escapeSequence.length());
-		updateColor(escapeSequence);
-		currentStream.print(text);
+			String escapeSequence = matcher.group(1);
+			String text = parts[i].substring(escapeSequence.length());
+			updateColor(escapeSequence);
+			currentStream.print(text);
 	    } else {
-		String str = parts[i];
-		currentStream.print(str);
+			String str = parts[i];
+			currentStream.print(str);
 	    }
 	}
     }
 
     private void updateColor(String ansiColor) {
-	MessageConsoleStream stream = streamPool.get(ansiColor);
-	if (stream == null) {
-	    this.currentStream = streamPool.get("default");
-	} else {
-	    this.currentStream = stream;
-	}
+		MessageConsoleStream stream = streamPool.get(ansiColor);
+		if (stream == null) {
+		    this.currentStream = addNewAnsiColor(ansiColor);
+		} else {
+		    this.currentStream = stream;
+		}
+    }
+    
+    private MessageConsoleStream addNewAnsiColor(String ansiColor) {
+    	Matcher rgbMatcher = rgbParser.matcher(ansiColor);
+    	if (rgbMatcher.matches()) {
+            try {
+            	int r = Integer.parseInt(rgbMatcher.group(1));
+                int g = Integer.parseInt(rgbMatcher.group(2));
+                int b = Integer.parseInt(rgbMatcher.group(3));
+                
+                Display.getDefault().syncExec(() -> {
+                    addStream(ansiColor, this.currentStream.getConsole(), 
+                    		new Color(Display.getDefault(), r, g, b));
+                });
+                return streamPool.get(ansiColor);
+            } catch (Exception e) {
+                return streamPool.get("default");
+            }
+        } else {
+        	return streamPool.get("default");
+        }
     }
 
     public void setDefaultColor(Color color) {
-	streamPool.get("default").setColor(color);
+		streamPool.get("default").setColor(color);
     }
 
     public void println() {
-	currentStream.println();
+		currentStream.println();
     }
 
     public void println(String message) {
-	print(message + "\n");
+		print(message + "\n");
     }
 
     public MessageConsole getConsole() {
-	return currentStream.getConsole();
+		return currentStream.getConsole();
     }
 
     @Override
     public void close() throws IOException {
-	for (MessageConsoleStream stream : streamPool.values()) {
-	    try {
-		stream.close();
-	    } catch (IOException e) {
-		e.printStackTrace();
-	    }
-	}
+    	for (MessageConsoleStream stream : streamPool.values()) {
+		    try {
+		    	stream.close();
+		    } catch (IOException e) {
+		    	e.printStackTrace();
+		    }
+		}
     }
 
     @Override
     public void flush() throws IOException {
-	currentStream.flush();
+    	currentStream.flush();
     }
 
 }
